@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>&#39;SQLmap的使用&#39; | Sunian&#39;s Blog</title>
+  <meta name="keywords" content=" SQL注入 ">
+  <meta name="description" content="&#39;SQLmap的使用&#39; | Sunian&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="个人简历素念，男，19岁 现读于某大专院校，汽修专业，自学web安全 专注于研究渗透测试方向 web安全，内网，硬件，社工等 联系方式QQ：3504078815 邮箱：lingyu195@gmail.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="&#39;关于我&amp;whoami&#39;">
+<meta property="og:url" content="http://yoursite.com/About/index.html">
+<meta property="og:site_name" content="Sunian&#39;s Blog">
+<meta property="og:description" content="个人简历素念，男，19岁 现读于某大专院校，汽修专业，自学web安全 专注于研究渗透测试方向 web安全，内网，硬件，社工等 联系方式QQ：3504078815 邮箱：lingyu195@gmail.com">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-28T15:41:57.131Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="&#39;关于我&amp;whoami&#39;">
+<meta name="twitter:description" content="个人简历素念，男，19岁 现读于某大专院校，汽修专业，自学web安全 专注于研究渗透测试方向 web安全，内网，硬件，社工等 联系方式QQ：3504078815 邮箱：lingyu195@gmail.com">
+
+
+<link rel="icon" href="/imgss/touxiang.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/darcula.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/imgss/touxiang.jpg" />
+</a>
+<div class="author">
+    <span>素念</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+        <a title="github" href="https://github.com/sunian19/sunian19.github.io" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:lingyu195@gmail.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=3504078815&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(47)</small></div></li>
+    
+        
+            
+            <li><div data-rel="Linux基础">Linux基础<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="遇到的问题">遇到的问题<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="SQL注入">SQL注入<small>(11)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="漏洞复现">漏洞复现<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="XSS">XSS<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="基础知识">基础知识<small>(11)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="代码分析">代码分析<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="文件包含">文件包含<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="渗透测试">渗透测试<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a style="border-right: 1px solid #fff; width: 49%"  class="about site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="47">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://meethanmj.github.io/">han</a></li>
+            
+            <li><a target="_blank" href="https://shh4757.github.io/">笨比shh</a></li>
+            
+            <li><a target="_blank" href="https://taylor8504.github.io/">taylor</a></li>
+            
+            <li><a target="_blank" href="https://0xxk.github.io/">0xxk</a></li>
+            
+            <li><a target="_blank" href="http://wp.fmk.pub/">Defender</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Linux基础</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">环境搭建</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">遇到的问题</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">SQL注入</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">漏洞复现</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">XSS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">基础知识</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">代码分析</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">渗透测试</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="Linux基础 "
+           href="/2019/07/29/LAMP/"
+           data-tag="Linux基础,环境搭建"
+           data-author="" >
+            <span class="post-title" title="&#39;LAMP环境搭建及DVWA和sqli&#39;">&#39;LAMP环境搭建及DVWA和sqli&#39;</span>
+            <span class="post-date" title="2019-07-29 00:00:00">2019/07/29</span>
+        </a>
+        
+        <a  class="遇到的问题 "
+           href="/2019/11/27/CTF练习题/"
+           data-tag="遇到的问题"
+           data-author="" >
+            <span class="post-title" title="&#39;CTF练习题解题&#39;">&#39;CTF练习题解题&#39;</span>
+            <span class="post-date" title="2019-11-27 23:24:41">2019/11/27</span>
+        </a>
+        
+        <a  class="SQL注入 "
+           href="/2019/12/06/MsSQL及access注入/"
+           data-tag="SQL注入"
+           data-author="" >
+            <span class="post-title" title="&#39;其他类型数据库注入&#39;">&#39;其他类型数据库注入&#39;</span>
+            <span class="post-date" title="2019-12-06 21:29:00">2019/12/06</span>
+        </a>
+        
+        <a  class="漏洞复现 "
+           href="/2019/09/11/MS17-010/"
+           data-tag="漏洞复现"
+           data-author="" >
+            <span class="post-title" title="&#39;MS17-010永恒之蓝漏洞复现&#39;">&#39;MS17-010永恒之蓝漏洞复现&#39;</span>
+            <span class="post-date" title="2019-09-11 19:00:12">2019/09/11</span>
+        </a>
+        
+        <a  class="XSS "
+           href="/2019/12/11/XSS基础/"
+           data-tag="XSS"
+           data-author="" >
+            <span class="post-title" title="&#39;XSS基础&#39;">&#39;XSS基础&#39;</span>
+            <span class="post-date" title="2019-12-11 11:54:41">2019/12/11</span>
+        </a>
+        
+        <a  class="XSS "
+           href="/2019/12/25/XSS平台使用/"
+           data-tag="XSS"
+           data-author="" >
+            <span class="post-title" title="&#39;XSS平台的使用&#39;">&#39;XSS平台的使用&#39;</span>
+            <span class="post-date" title="2019-12-25 16:54:41">2019/12/25</span>
+        </a>
+        
+        <a  class="XSS "
+           href="/2019/12/10/XSS挑战之旅/"
+           data-tag="XSS"
+           data-author="" >
+            <span class="post-title" title="&#39;XSS挑战之旅&#39;">&#39;XSS挑战之旅&#39;</span>
+            <span class="post-date" title="2019-12-10 10:54:41">2019/12/10</span>
+        </a>
+        
+        <a  class="基础知识 "
+           href="/2019/08/05/PHP数组/"
+           data-tag="基础知识"
+           data-author="" >
+            <span class="post-title" title="&#39;PHP循环和数组及函数&#39;">&#39;PHP循环和数组及函数&#39;</span>
+            <span class="post-date" title="2019-08-05 00:00:00">2019/08/05</span>
+        </a>
+        
+        <a  class="XSS "
+           href="/2019/12/13/beef的使用/"
+           data-tag="XSS"
+           data-author="" >
+            <span class="post-title" title="&#39;BeEF的使用&#39;">&#39;BeEF的使用&#39;</span>
+            <span class="post-date" title="2019-12-13 11:54:41">2019/12/13</span>
+        </a>
+        
+        <a  class="基础知识 "
+           href="/2019/08/04/PHP基本语法/"
+           data-tag="基础知识"
+           data-author="" >
+            <span class="post-title" title="&#39;PHP基本语法&#39;">&#39;PHP基本语法&#39;</span>
+            <span class="post-date" title="2019-08-04 11:36:41">2019/08/04</span>
+        </a>
+        
+        <a  class="漏洞复现 "
+           href="/2019/09/11/bluekeep/"
+           data-tag="漏洞复现"
+           data-author="" >
+            <span class="post-title" title="&#39;bluekeep漏洞复现&#39;">&#39;bluekeep漏洞复现&#39;</span>
+            <span class="post-date" title="2019-09-11 19:00:12">2019/09/11</span>
+        </a>
+        
+        <a  class="遇到的问题 "
+           href="/2019/11/22/SSR问题/"
+           data-tag="遇到的问题"
+           data-author="" >
+            <span class="post-title" title="使用代理遇到的问题">使用代理遇到的问题</span>
+            <span class="post-date" title="2019-11-22 13:13:00">2019/11/22</span>
+        </a>
+        
+        <a  class="遇到的问题 "
+           href="/2019/11/27/kali4中文乱码问题/"
+           data-tag="遇到的问题"
+           data-author="" >
+            <span class="post-title" title="&#39;新版kali中文乱码问题&#39;">&#39;新版kali中文乱码问题&#39;</span>
+            <span class="post-date" title="2019-11-27 23:24:41">2019/11/27</span>
+        </a>
+        
+        <a  class="基础知识 "
+           href="/2019/07/28/html基本语法/"
+           data-tag="基础知识"
+           data-author="" >
+            <span class="post-title" title="&#39;html基本语法&#39;">&#39;html基本语法&#39;</span>
+            <span class="post-date" title="2019-07-28 00:00:00">2019/07/28</span>
+        </a>
+        
+        <a  class="XSS "
+           href="/2019/12/12/XSS进阶/"
+           data-tag="XSS"
+           data-author="" >
+            <span class="post-title" title="&#39;XSS进阶&#39;">&#39;XSS进阶&#39;</span>
+            <span class="post-date" title="2019-12-12 10:54:41">2019/12/12</span>
+        </a>
+        
+        <a  class="SQL注入 "
+           href="/2019/12/07/oracle数据库注入/"
+           data-tag="SQL注入"
+           data-author="" >
+            <span class="post-title" title="&#39;oracle数据库注入&#39;">&#39;oracle数据库注入&#39;</span>
+            <span class="post-date" title="2019-12-07 21:29:00">2019/12/07</span>
+        </a>
+        
+        <a  class="SQL注入 "
+           href="/2019/08/13/sql语句查询/"
+           data-tag="SQL注入"
+           data-author="" >
+            <span class="post-title" title="&#39;sql查询语法&#39;">&#39;sql查询语法&#39;</span>
+            <span class="post-date" title="2019-08-13 09:54:41">2019/08/13</span>
+        </a>
+        
+        <a  class="漏洞复现 "
+           href="/2019/10/28/thinkcmf/"
+           data-tag="漏洞复现"
+           data-author="" >
+            <span class="post-title" title="&#39;thinkcmf框架漏洞复现&#39;">&#39;thinkcmf框架漏洞复现&#39;</span>
+            <span class="post-date" title="2019-10-28 19:00:12">2019/10/28</span>
+        </a>
+        
+        <a  class="SQL注入 "
+           href="/2019/08/13/union/"
+           data-tag="SQL注入"
+           data-author="" >
+            <span class="post-title" title="&#39;联合查询&#39;">&#39;联合查询&#39;</span>
+            <span class="post-date" title="2019-08-13 22:54:41">2019/08/13</span>
+        </a>
+        
+        <a  class="SQL注入 "
+           href="/2019/12/06/其他常见类型注入/"
+           data-tag="SQL注入"
+           data-author="" >
+            <span class="post-title" title="&#39;其他常见类型注入&#39;">&#39;其他常见类型注入&#39;</span>
+            <span class="post-date" title="2019-12-06 19:01:00">2019/12/06</span>
+        </a>
+        
+        <a  class="漏洞复现 "
+           href="/2019/11/12/CVE2019-5418/"
+           data-tag="漏洞复现"
+           data-author="" >
+            <span class="post-title" title="CVE2019-5418漏洞复现">CVE2019-5418漏洞复现</span>
+            <span class="post-date" title="2019-11-12 12:00:12">2019/11/12</span>
+        </a>
+        
+        <a  class="XSS "
+           href="/2019/12/10/XSS靶场通关/"
+           data-tag="XSS"
+           data-author="" >
+            <span class="post-title" title="&#39;XSS靶场通关&#39;">&#39;XSS靶场通关&#39;</span>
+            <span class="post-date" title="2019-12-10 09:54:41">2019/12/10</span>
+        </a>
+        
+        <a  class="代码分析 "
+           href="/2019/09/13/webshell分析/"
+           data-tag="代码分析"
+           data-author="" >
+            <span class="post-title" title="&#39;webshell代码分析&#39;">&#39;webshell代码分析&#39;</span>
+            <span class="post-date" title="2019-09-13 12:00:12">2019/09/13</span>
+        </a>
+        
+        <a  class="Linux基础 "
+           href="/2019/08/07/常用命令整理/"
+           data-tag="Linux基础"
+           data-author="" >
+            <span class="post-title" title="&#39;常用命令整理&#39;">&#39;常用命令整理&#39;</span>
+            <span class="post-date" title="2019-08-07 00:00:00">2019/08/07</span>
+        </a>
+        
+        <a  class="XSS "
+           href="/2019/12/12/学习XSS前准备/"
+           data-tag="XSS"
+           data-author="" >
+            <span class="post-title" title="&#39;学习XSS及CSRF前准备&#39;">&#39;学习XSS及CSRF前准备&#39;</span>
+            <span class="post-date" title="2019-12-12 11:54:41">2019/12/12</span>
+        </a>
+        
+        <a  class="基础知识 "
+           href="/2019/08/21/burp使用/"
+           data-tag="基础知识"
+           data-author="" >
+            <span class="post-title" title="&#39;burp使用&#39;">&#39;burp使用&#39;</span>
+            <span class="post-date" title="2019-08-21 21:50:12">2019/08/21</span>
+        </a>
+        
+        <a  class="基础知识 "
+           href="/2019/08/17/文件函数/"
+           data-tag="基础知识"
+           data-author="" >
+            <span class="post-title" title="&#39;文件函数部分&#39;">&#39;文件函数部分&#39;</span>
+            <span class="post-date" title="2019-08-17 20:39:12">2019/08/17</span>
+        </a>
+        
+        <a  class="文件包含 "
+           href="/2019/07/28/文件包含4.8/"
+           data-tag="漏洞复现"
+           data-author="" >
+            <span class="post-title" title="&#39;phpMyAdmin4.8漏洞复现&#39;">&#39;phpMyAdmin4.8漏洞复现&#39;</span>
+            <span class="post-date" title="2019-07-28 09:54:41">2019/07/28</span>
+        </a>
+        
+        <a  class="SQL注入 "
+           href="/2019/12/05/注入基础/"
+           data-tag="SQL注入"
+           data-author="" >
+            <span class="post-title" title="&#39;注入基础&#39;">&#39;注入基础&#39;</span>
+            <span class="post-date" title="2019-12-05 11:45:41">2019/12/05</span>
+        </a>
+        
+        <a  class="SQL注入 "
+           href="/2019/07/31/对某厂商的盲注/"
+           data-tag="SQL注入"
+           data-author="" >
+            <span class="post-title" title="&#39;对某厂商的盲注&#39;">&#39;对某厂商的盲注&#39;</span>
+            <span class="post-date" title="2019-07-31 09:54:41">2019/07/31</span>
+        </a>
+        
+        <a  class="SQL注入 "
+           href="/2019/12/06/注入流程及方式/"
+           data-tag="SQL注入"
+           data-author="" >
+            <span class="post-title" title="&#39;MySQL注入流程及方式&#39;">&#39;MySQL注入流程及方式&#39;</span>
+            <span class="post-date" title="2019-12-06 15:45:41">2019/12/06</span>
+        </a>
+        
+        <a  class="基础知识 "
+           href="/2019/07/31/渗透测试流程/"
+           data-tag="基础知识"
+           data-author="" >
+            <span class="post-title" title="&#39;专业术语及渗透测试流程&#39;">&#39;专业术语及渗透测试流程&#39;</span>
+            <span class="post-date" title="2019-07-31 09:54:41">2019/07/31</span>
+        </a>
+        
+        <a  class="渗透测试 "
+           href="/2019/11/27/渗透测试之谷歌插件/"
+           data-tag="渗透测试"
+           data-author="" >
+            <span class="post-title" title="&#39;渗透测试之谷歌插件&#39;">&#39;渗透测试之谷歌插件&#39;</span>
+            <span class="post-date" title="2019-11-27 23:24:41">2019/11/27</span>
+        </a>
+        
+        <a  class="Linux基础 "
+           href="/2019/07/28/用户权限和组/"
+           data-tag="Linux基础"
+           data-author="" >
+            <span class="post-title" title="&#39;权限问题&#39;">&#39;权限问题&#39;</span>
+            <span class="post-date" title="2019-07-28 09:54:41">2019/07/28</span>
+        </a>
+        
+        <a  class="基础知识 "
+           href="/2019/08/21/绕过token/"
+           data-tag="基础知识"
+           data-author="" >
+            <span class="post-title" title="&#39;绕过DVWA的token&#39;">&#39;绕过DVWA的token&#39;</span>
+            <span class="post-date" title="2019-08-21 21:50:12">2019/08/21</span>
+        </a>
+        
+        <a  class="渗透测试 "
+           href="/2019/12/14/记一次靶场渗透/"
+           data-tag="渗透测试"
+           data-author="" >
+            <span class="post-title" title="&#39;记一次靶场渗透练习&#39;">&#39;记一次靶场渗透练习&#39;</span>
+            <span class="post-date" title="2019-12-14 21:54:41">2019/12/14</span>
+        </a>
+        
+        <a  class="基础知识 "
+           href="/2019/08/12/小程序/"
+           data-tag="基础知识"
+           data-author="" >
+            <span class="post-title" title="&#39;PHP小程序&#39;">&#39;PHP小程序&#39;</span>
+            <span class="post-date" title="2019-08-12 00:00:00">2019/08/12</span>
+        </a>
+        
+        <a  class="SQL注入 "
+           href="/2019/08/28/注入新闻页面/"
+           data-tag="SQL注入"
+           data-author="" >
+            <span class="post-title" title="&#39;注入新闻页面&#39;">&#39;注入新闻页面&#39;</span>
+            <span class="post-date" title="2019-08-28 08:45:41">2019/08/28</span>
+        </a>
+        
+        <a  class="Linux基础 "
+           href="/2019/08/04/防火墙/"
+           data-tag="Linux基础"
+           data-author="" >
+            <span class="post-title" title="&#39;防火墙&#39;">&#39;防火墙&#39;</span>
+            <span class="post-date" title="2019-08-04 00:00:00">2019/08/04</span>
+        </a>
+        
+        <a  class="SQL注入 "
+           href="/2019/12/06/注入之dns/"
+           data-tag="SQL注入"
+           data-author="" >
+            <span class="post-title" title="&#39;DNSlog数据外带及过waf&#39;">&#39;DNSlog数据外带及过waf&#39;</span>
+            <span class="post-date" title="2019-12-06 21:29:00">2019/12/06</span>
+        </a>
+        
+        <a  class="渗透测试 "
+           href="/2019/11/29/badusb制作/"
+           data-tag="渗透测试"
+           data-author="" >
+            <span class="post-title" title="&#39;BadUSB制作&#39;">&#39;BadUSB制作&#39;</span>
+            <span class="post-date" title="2019-11-29 09:25:04">2019/11/29</span>
+        </a>
+        
+        <a  class="SQL注入 "
+           href="/2019/12/07/SQLmap的使用/"
+           data-tag="SQL注入"
+           data-author="" >
+            <span class="post-title" title="&#39;SQLmap的使用&#39;">&#39;SQLmap的使用&#39;</span>
+            <span class="post-date" title="2019-12-07 20:33:12">2019/12/07</span>
+        </a>
+        
+        <a  class="Linux基础 "
+           href="/2019/07/29/linux基础总结/"
+           data-tag="Linux基础"
+           data-author="" >
+            <span class="post-title" title="&#39;LINUX基本命令总结&#39;">&#39;LINUX基本命令总结&#39;</span>
+            <span class="post-date" title="2019-07-29 00:00:00">2019/07/29</span>
+        </a>
+        
+        <a  class="基础知识 "
+           href="/2019/08/17/数据库分类/"
+           data-tag="基础知识"
+           data-author="" >
+            <span class="post-title" title="&#39;数据库部分&#39;">&#39;数据库部分&#39;</span>
+            <span class="post-date" title="2019-08-17 20:33:12">2019/08/17</span>
+        </a>
+        
+        <a  class="基础知识 "
+           href="/2019/08/21/http基础/"
+           data-tag="基础知识"
+           data-author="" >
+            <span class="post-title" title="&#39;httpd知识&#39;">&#39;httpd知识&#39;</span>
+            <span class="post-date" title="2019-08-21 20:13:12">2019/08/21</span>
+        </a>
+        
+        <a  class="渗透测试 "
+           href="/2019/11/27/渗透测试前期信息搜集/"
+           data-tag="渗透测试"
+           data-author="" >
+            <span class="post-title" title="&#39;渗透测试之前期信息搜集&#39;">&#39;渗透测试之前期信息搜集&#39;</span>
+            <span class="post-date" title="2019-11-27 23:04:41">2019/11/27</span>
+        </a>
+        
+        <a  class="基础知识 "
+           href="/2019/08/13/新闻登陆界面/"
+           data-tag="基础知识"
+           data-author="" >
+            <span class="post-title" title="&#39;新闻页面&#39;">&#39;新闻页面&#39;</span>
+            <span class="post-date" title="2019-08-13 09:54:41">2019/08/13</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-SQLmap的使用" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">&#39;SQLmap的使用&#39;</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="SQL注入">SQL注入</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color1">SQL注入</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-12-08 16:13:52'>2019-12-07 20:33</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装SQLmap"><span class="toc-text">安装SQLmap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本使用"><span class="toc-text">基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进阶命令"><span class="toc-text">进阶命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自带脚本tamper"><span class="toc-text">自带脚本tamper</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>说实话本不打算写SQLmap的使用的，网上教程太多了，用烂了，都去用工具，<br>一到面试连个原理都不知道，仅供参考，多懂原理，少用工具，切记。</p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>SQLmap是一个自动化的SQL注入工具，主要功能是扫描、发现并利用给定URL的SQL注入漏洞，内置了很多绕过插件，支持MySQL、Oracle、postgreSQL、MSSQL(SQL Server)、ACCESS、DB2、SQLite、Firebird、sybase和SAP MaxDB数据库。SQLmap的强大功能包括数据库指纹识别、数据库枚举、数据提取、访问目标、文件系统、并在获取完全的操作权限时实行任意命令。</p>
+<h3 id="安装SQLmap"><a href="#安装SQLmap" class="headerlink" title="安装SQLmap"></a>安装SQLmap</h3><p>我们不用网上那种将SQLmap放到python的安装目录下。<br><a href="https://github.com/sqlmapproject/sqlmap" target="_blank" rel="noopener">https://github.com/sqlmapproject/sqlmap</a><br>直接解压，创建一个名为alies_cmd.bat的别名脚本，右键编辑内容如下<br><img src="/imgss/t36.png" alt><br>修改注册表，计算机\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Command Processor<br>创建一个字符串名为AutoRun，值为刚才创建的bat脚本<br><img src="/imgss/t35.png" alt><br>这样我们就能直接cmd调用sqlmap了<br><img src="/imgss/t37.png" alt></p>
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><p>1，判断是否存在注入点<br>sqlmap -u <a href="http://192.168.239.29/sqli-labs/Less-1/?id=1" target="_blank" rel="noopener">http://192.168.239.29/sqli-labs/Less-1/?id=1</a><br><img src="/imgss/t39.png" alt><br>id参数大于两个时，记得把url用双引号引起来<br>sqlmap -u “<a href="http://192.168.239.29/sqli-labs/Less-1/?id=1&amp;uid=1&quot;" target="_blank" rel="noopener">http://192.168.239.29/sqli-labs/Less-1/?id=1&amp;uid=1&quot;</a><br><img src="/imgss/t40.png" alt><br>报出的代码中，需要关注的点<br>第一处的意思为检测到数据库可能是MySQL，是否需要跳过检测其他数据库；第二处的意思是在“level1，risk1”的情况下，是否使用MySQL对应的所有payload进行检测；第三处的意思为参数ID存在漏洞，是否继续检测其他参数。<br><img src="/imgss/t41.png" alt><br>检测结果，id处GET型注入，报错注入，延时注入，联合查询。</p>
+<p>2，判断文本中的请求是否存在注入<br>MySQL可以从一个文本文件中获取HTTP请求，这样可以不设置其他参数(如cookie、POST数据等)，txt文件中的内容为Web数据包<br><img src="/imgss/t42.png" alt><br>-p为指定其中一个参数<br>sqlmap -u <a href="http://192.168.100.94/DVWA/vulnerabilities/sqli/?id=1&amp;submit=submit#" target="_blank" rel="noopener">http://192.168.100.94/DVWA/vulnerabilities/sqli/?id=1&amp;submit=submit#</a> -p id<br>-r一般在存在cookie注入时使用，注意*的优先级最高，测试时记得把其他*去掉<br><img src="/imgss/t43.png" alt></p>
+<p>3，查询数据<br>(1)查询所有库名<br>sqlmap -u <a href="http://192.168.239.29/sqli-labs/Less-1/?id=1" target="_blank" rel="noopener">http://192.168.239.29/sqli-labs/Less-1/?id=1</a> - -dbs<br><img src="/imgss/t44.png" alt><br>(2)查询库中的所有表名<br>sqlmap -u <a href="http://192.168.239.29/sqli-labs/Less-1/?id=1" target="_blank" rel="noopener">http://192.168.239.29/sqli-labs/Less-1/?id=1</a> -D security - -tables<br><img src="/imgss/t46.png" alt><br>(3)查询表中的字段<br>sqlmap -u <a href="http://192.168.239.29/sqli-labs/Less-1/?id=1" target="_blank" rel="noopener">http://192.168.239.29/sqli-labs/Less-1/?id=1</a> -D security -T users - -columns<br><img src="/imgss/t45.png" alt><br>(4)查询字段内容<br>sqlmap -u <a href="http://192.168.239.29/sqli-labs/Less-1/?id=1" target="_blank" rel="noopener">http://192.168.239.29/sqli-labs/Less-1/?id=1</a> -D security -T users -C username,password - -dump<br><img src="/imgss/t47.png" alt><br>(5)脱裤<br>sqlmap -u <a href="http://192.168.239.29/sqli-labs/Less-1/?id=1" target="_blank" rel="noopener">http://192.168.239.29/sqli-labs/Less-1/?id=1</a> - -dump-all<br>(6)获取数据库的所有用户<br>sqlmap -u <a href="http://192.168.239.29/sqli-labs/Less-1/?id=1" target="_blank" rel="noopener">http://192.168.239.29/sqli-labs/Less-1/?id=1</a> - -users<br><img src="/imgss/t48.png" alt><br>(7)获取数据库用户的密码<br>sqlmap -u <a href="http://192.168.239.29/sqli-labs/Less-1/?id=1" target="_blank" rel="noopener">http://192.168.239.29/sqli-labs/Less-1/?id=1</a> - -passwords<br>如果当前用户有读取包含用户密码的权限，SQLMAP会先列出用户，再列出hash，并尝试破解<br>密码使用MySQL5加密，可在<a href="http://www.cmd5.com" target="_blank" rel="noopener">www.cmd5.com</a> 中自行解密。<br><img src="/imgss/t49.png" alt><br>(8)获取当前网站数据库名称<br>sqlmap -u <a href="http://192.168.239.29/sqli-labs/Less-1/?id=1" target="_blank" rel="noopener">http://192.168.239.29/sqli-labs/Less-1/?id=1</a> - -current-db<br><img src="/imgss/t50.png" alt><br>(9)获取当前网站数据库用户名称<br><img src="/imgss/t51.png" alt></p>
+<h3 id="进阶命令"><a href="#进阶命令" class="headerlink" title="进阶命令"></a>进阶命令</h3><p>1，- -level 5：探测等级<br>默认为1，等级越高包含的payload越多，在xml/payload.xml中可看到，也可根据相应的格式添加自己的payload，其中5级包含payload最多，会自动破解出cookie、XFF等头部注入。但相对运行速度也比较慢。<br>这个参数会影响测试的注入点，GET和POST数据都会进行测试，HTTP cookie在level为2时就会测试，HTTP User-Agent/Referer头在level为3时进行测试。在不确定哪个payload或参数为注入点时，为了保证全面性，建议使用高的level值。<br>2，- -is-dba：查询当前用户是否为管理员权限<br>sqlmap -u <a href="http://192.168.239.29/sqli-labs/Less-1/?id=1" target="_blank" rel="noopener">http://192.168.239.29/sqli-labs/Less-1/?id=1</a> - -is-dba<br><img src="/imgss/t52.png" alt><br>3，- -roles：列出数据库管理员角色<br>如果当前用户有权限读取包含所有用户的表，输入该命令会列举出每个用户的角色。<br><img src="/imgss/t53.png" alt><br>4，- -referer：HTTP Referer头<br>当- -level参数设定为3或以上时，会尝试对referer进行注入。可以使用此命令来欺骗，如- -referer <a href="http://www.baidu.com" target="_blank" rel="noopener">http://www.baidu.com</a><br>5，- -sql-shell<br>返回一个能够执行SQL语句的shell<br>6，- -os-cmd，- -os-shell<br>- -os-cmd   执行net user命令<br>- -so-shell 获取一个交互式的shell执行操作系统命令<br>原理(重点)：通过mysql的into outfile或into dumpfile功能，向网站目录写入php代码，用来执行系统命令。(需要数据库管理员权限，也就是- -is-dba的值为Ture)<br>7，- -file-read：从数据库服务器中读取文件<br>sqlmap -u <a href="http://192.168.239.29/sqli-labs/Less-1/?id=1" target="_blank" rel="noopener">http://192.168.239.29/sqli-labs/Less-1/?id=1</a> - -file-read “/etc/passwd”<br><img src="/imgss/t54.png" alt><br>8，- -file-write - -file-dest：上传本地文件到数据库服务器中<br>写入write本地文件路径的文件，dest到目标的绝对路径，尽量把路径引起来<br>sqlmap -u <a href="http://192.168.239.29/sqli-labs/Less-1/?id=1" target="_blank" rel="noopener">http://192.168.239.29/sqli-labs/Less-1/?id=1</a> - -file-write “C:\Users\35040\Desktop\1.txt” - -file-dest “/tmp/1.txt”<br><img src="/imgss/t55.png" alt><br><img src="/imgss/t56.png" alt><br>9，其他常用命令<br>- -prefix    ‘%df%27’      指定前缀<br>- -suffix    ‘- - l’        指定后缀<br>sqlmap - -purge          清除所有缓存<br>- -technique   B           注入测试时，指定布尔盲注<br>- -threads    5            多线程检索<br>- -identify-waf - -batch 检测waf<br>直接连接到数据库<br>-d “mysql://admin:<a href="mailto:admin@192.168.1.1" target="_blank" rel="noopener">admin@192.168.1.1</a>:3306/testdb” - -dbs<br>指定cookie注入<br>- -cookie “security=low;PHPSESSID=28albj29q9588v7utjoo4”</p>
+<h3 id="自带脚本tamper"><a href="#自带脚本tamper" class="headerlink" title="自带脚本tamper"></a>自带脚本tamper</h3><p>格式： sqlmap -u <a href="http://url" target="_blank" rel="noopener">http://url</a> - -tamper 模块名</p>
+<p>速查表：<br>1，apostrophemask.py<br>作用：将引号替换为UTF-8，用于过滤单引号<br>2，base64encode.py<br>作用：替换为 base64编码<br>3，multipleaspace.py<br>作用：围绕 SQL 关键字添加多个空格<br>4，space2plus.py<br>作用：用+号替换空格<br>5，nonrecurisvereplacement.py<br>作用：作为双重查询语句，用双重语句替代预定义SQL关键字(适用于非常弱的自定义过滤器，例如将SELECT替换为空)<br>6，space2randomblank.py<br>作用：将空格替换为其他有效字符<br>7，unionalltounion.py<br>作用：将 union all select替换为union select<br>8，securesphere.py<br>作用：追加特制字符串<br>使用前：1 and 1=1<br>使用后：1 and 1=1 and ‘0having=0having’<br>9，space2hash.py<br>作用：将空格替换为#号，并添加一个随机字符串和换行符<br>10，space2mssqlblank.py(mssql)<br>作用：将空格替换为其他空符号<br>11，space2mssqlhash.py<br>作用：将空格替换为#号，并添加一个换行符<br>12，between.py<br>作用：用not between 0 and 替换大于号（&gt;）,用between and替换等号（=）<br>13，percentage.py<br>作用：ASP 允许在每个字符前面添加一个%号<br>14，sp_password.py<br>作用：从DBMS日志的自动模糊处理的有效载荷中追加sp_password<br>15，charencode.py<br>作用：对给定的payload全部字符使用url编码（不处理已经编码的字符串）<br>16，randomcase.py<br>作用：随机大小写<br>17，charunicodeencode.py<br>作用：字符串Unicode编码<br>18，space2comment.py<br>作用：将空格替换为/**/<br>19，equaltolike.py<br>作用：将等号替换为like<br>20，greatest.py<br>作用：绕过对&gt;号的过滤，用greatest替换&gt;号<br>21，ifnull2ifisnull.py<br>作用：绕过对ifnull的过滤，替换类似ifnull(a,b)为if(isnull(a),b,a)<br>22，modsecurityversioned.py<br>作用：过滤空格，使用mysql内联注释的方式进行注入<br>23，space2mysqlblank.py<br>作用：将空格替换为其他空白符号（mysql）<br>24，modsecurityzeroversioned.py<br>作用：使用mysql内联注释的方式进行注入(/*！00000*/)（mysql5.0）<br>25，space2mysqldash.py<br>作用：将空格替换为- -,并添加一个换行符<br>26，bluecoat.py<br>作用：sql语句之后用有效的随机空白符替换空格符，随后用like替换=号<br>27，versionedkeywords.py<br>作用：注释绕过<br>28，halfversionedmorekeywords.py<br>作用：当数据库为mysql时绕过防火墙，再每个关键字之前添加mysql版本注释<br>29，space2morehash.py<br>作用：将空格替换为#号，并添加一个随机字符串和换行符<br>30，apostrophenullencode.py<br>作用：用非法双字节Unicode字符替换单引号<br>31，appendnullbyte.py<br>作用：在有效负荷的结束为止加载零字节字符编码<br>32，chardoubleencode.py<br>作用：对给定的payload全部字符使用双重url编码（不处理已经编码的字符）<br>33，unmagicquotes.py<br>作用：用一个多字节组合（%bf%27）和末尾通用注释一起替换空格<br>34，randomcomments.py<br>作用：用/**/分割sql关键字</p>
+<p>希望大家在学习如何使用自带的tamper的同时，能够掌握tamper的编写规则，才能在各种实战环境中应对自如。</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在QQ私聊我，也可以邮件至 lingyu195@gmail.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>&#39;SQLmap的使用&#39;</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="素念">素念</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-12-07, 20:33:12</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-08, 16:13:52</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/07/SQLmap的使用/" title="&#39;SQLmap的使用&#39;">http://yoursite.com/2019/12/07/SQLmap的使用/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 sunian</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="//cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#Linux基础','#环境搭建','#遇到的问题','#SQL注入','#漏洞复现','#XSS','#基础知识','#代码分析','#渗透测试',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

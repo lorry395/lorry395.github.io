@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>&#39;PHP循环和数组及函数&#39; | Sunian&#39;s Blog</title>
+  <meta name="keywords" content=" 基础知识 ">
+  <meta name="description" content="&#39;PHP循环和数组及函数&#39; | Sunian&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="个人简历素念，男，19岁 现读于某大专院校，汽修专业，自学web安全 专注于研究渗透测试方向 web安全，内网，硬件，社工等 联系方式QQ：3504078815 邮箱：lingyu195@gmail.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="&#39;关于我&amp;whoami&#39;">
+<meta property="og:url" content="http://yoursite.com/About/index.html">
+<meta property="og:site_name" content="Sunian&#39;s Blog">
+<meta property="og:description" content="个人简历素念，男，19岁 现读于某大专院校，汽修专业，自学web安全 专注于研究渗透测试方向 web安全，内网，硬件，社工等 联系方式QQ：3504078815 邮箱：lingyu195@gmail.com">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-28T15:41:57.131Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="&#39;关于我&amp;whoami&#39;">
+<meta name="twitter:description" content="个人简历素念，男，19岁 现读于某大专院校，汽修专业，自学web安全 专注于研究渗透测试方向 web安全，内网，硬件，社工等 联系方式QQ：3504078815 邮箱：lingyu195@gmail.com">
+
+
+<link rel="icon" href="/imgss/touxiang.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/darcula.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/imgss/touxiang.jpg" />
+</a>
+<div class="author">
+    <span>素念</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+        <a title="github" href="https://github.com/sunian19/sunian19.github.io" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:lingyu195@gmail.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=3504078815&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(47)</small></div></li>
+    
+        
+            
+            <li><div data-rel="Linux基础">Linux基础<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="遇到的问题">遇到的问题<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="SQL注入">SQL注入<small>(11)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="漏洞复现">漏洞复现<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="XSS">XSS<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="基础知识">基础知识<small>(11)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="代码分析">代码分析<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="文件包含">文件包含<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="渗透测试">渗透测试<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a style="border-right: 1px solid #fff; width: 49%"  class="about site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="47">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://meethanmj.github.io/">han</a></li>
+            
+            <li><a target="_blank" href="https://shh4757.github.io/">笨比shh</a></li>
+            
+            <li><a target="_blank" href="https://taylor8504.github.io/">taylor</a></li>
+            
+            <li><a target="_blank" href="https://0xxk.github.io/">0xxk</a></li>
+            
+            <li><a target="_blank" href="http://wp.fmk.pub/">Defender</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Linux基础</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">环境搭建</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">遇到的问题</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">SQL注入</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">漏洞复现</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">XSS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">基础知识</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">代码分析</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">渗透测试</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="Linux基础 "
+           href="/2019/07/29/LAMP/"
+           data-tag="Linux基础,环境搭建"
+           data-author="" >
+            <span class="post-title" title="&#39;LAMP环境搭建及DVWA和sqli&#39;">&#39;LAMP环境搭建及DVWA和sqli&#39;</span>
+            <span class="post-date" title="2019-07-29 00:00:00">2019/07/29</span>
+        </a>
+        
+        <a  class="遇到的问题 "
+           href="/2019/11/27/CTF练习题/"
+           data-tag="遇到的问题"
+           data-author="" >
+            <span class="post-title" title="&#39;CTF练习题解题&#39;">&#39;CTF练习题解题&#39;</span>
+            <span class="post-date" title="2019-11-27 23:24:41">2019/11/27</span>
+        </a>
+        
+        <a  class="SQL注入 "
+           href="/2019/12/06/MsSQL及access注入/"
+           data-tag="SQL注入"
+           data-author="" >
+            <span class="post-title" title="&#39;其他类型数据库注入&#39;">&#39;其他类型数据库注入&#39;</span>
+            <span class="post-date" title="2019-12-06 21:29:00">2019/12/06</span>
+        </a>
+        
+        <a  class="漏洞复现 "
+           href="/2019/09/11/MS17-010/"
+           data-tag="漏洞复现"
+           data-author="" >
+            <span class="post-title" title="&#39;MS17-010永恒之蓝漏洞复现&#39;">&#39;MS17-010永恒之蓝漏洞复现&#39;</span>
+            <span class="post-date" title="2019-09-11 19:00:12">2019/09/11</span>
+        </a>
+        
+        <a  class="XSS "
+           href="/2019/12/11/XSS基础/"
+           data-tag="XSS"
+           data-author="" >
+            <span class="post-title" title="&#39;XSS基础&#39;">&#39;XSS基础&#39;</span>
+            <span class="post-date" title="2019-12-11 11:54:41">2019/12/11</span>
+        </a>
+        
+        <a  class="XSS "
+           href="/2019/12/25/XSS平台使用/"
+           data-tag="XSS"
+           data-author="" >
+            <span class="post-title" title="&#39;XSS平台的使用&#39;">&#39;XSS平台的使用&#39;</span>
+            <span class="post-date" title="2019-12-25 16:54:41">2019/12/25</span>
+        </a>
+        
+        <a  class="XSS "
+           href="/2019/12/10/XSS挑战之旅/"
+           data-tag="XSS"
+           data-author="" >
+            <span class="post-title" title="&#39;XSS挑战之旅&#39;">&#39;XSS挑战之旅&#39;</span>
+            <span class="post-date" title="2019-12-10 10:54:41">2019/12/10</span>
+        </a>
+        
+        <a  class="基础知识 "
+           href="/2019/08/05/PHP数组/"
+           data-tag="基础知识"
+           data-author="" >
+            <span class="post-title" title="&#39;PHP循环和数组及函数&#39;">&#39;PHP循环和数组及函数&#39;</span>
+            <span class="post-date" title="2019-08-05 00:00:00">2019/08/05</span>
+        </a>
+        
+        <a  class="XSS "
+           href="/2019/12/13/beef的使用/"
+           data-tag="XSS"
+           data-author="" >
+            <span class="post-title" title="&#39;BeEF的使用&#39;">&#39;BeEF的使用&#39;</span>
+            <span class="post-date" title="2019-12-13 11:54:41">2019/12/13</span>
+        </a>
+        
+        <a  class="基础知识 "
+           href="/2019/08/04/PHP基本语法/"
+           data-tag="基础知识"
+           data-author="" >
+            <span class="post-title" title="&#39;PHP基本语法&#39;">&#39;PHP基本语法&#39;</span>
+            <span class="post-date" title="2019-08-04 11:36:41">2019/08/04</span>
+        </a>
+        
+        <a  class="漏洞复现 "
+           href="/2019/09/11/bluekeep/"
+           data-tag="漏洞复现"
+           data-author="" >
+            <span class="post-title" title="&#39;bluekeep漏洞复现&#39;">&#39;bluekeep漏洞复现&#39;</span>
+            <span class="post-date" title="2019-09-11 19:00:12">2019/09/11</span>
+        </a>
+        
+        <a  class="遇到的问题 "
+           href="/2019/11/22/SSR问题/"
+           data-tag="遇到的问题"
+           data-author="" >
+            <span class="post-title" title="使用代理遇到的问题">使用代理遇到的问题</span>
+            <span class="post-date" title="2019-11-22 13:13:00">2019/11/22</span>
+        </a>
+        
+        <a  class="遇到的问题 "
+           href="/2019/11/27/kali4中文乱码问题/"
+           data-tag="遇到的问题"
+           data-author="" >
+            <span class="post-title" title="&#39;新版kali中文乱码问题&#39;">&#39;新版kali中文乱码问题&#39;</span>
+            <span class="post-date" title="2019-11-27 23:24:41">2019/11/27</span>
+        </a>
+        
+        <a  class="基础知识 "
+           href="/2019/07/28/html基本语法/"
+           data-tag="基础知识"
+           data-author="" >
+            <span class="post-title" title="&#39;html基本语法&#39;">&#39;html基本语法&#39;</span>
+            <span class="post-date" title="2019-07-28 00:00:00">2019/07/28</span>
+        </a>
+        
+        <a  class="XSS "
+           href="/2019/12/12/XSS进阶/"
+           data-tag="XSS"
+           data-author="" >
+            <span class="post-title" title="&#39;XSS进阶&#39;">&#39;XSS进阶&#39;</span>
+            <span class="post-date" title="2019-12-12 10:54:41">2019/12/12</span>
+        </a>
+        
+        <a  class="SQL注入 "
+           href="/2019/12/07/oracle数据库注入/"
+           data-tag="SQL注入"
+           data-author="" >
+            <span class="post-title" title="&#39;oracle数据库注入&#39;">&#39;oracle数据库注入&#39;</span>
+            <span class="post-date" title="2019-12-07 21:29:00">2019/12/07</span>
+        </a>
+        
+        <a  class="SQL注入 "
+           href="/2019/08/13/sql语句查询/"
+           data-tag="SQL注入"
+           data-author="" >
+            <span class="post-title" title="&#39;sql查询语法&#39;">&#39;sql查询语法&#39;</span>
+            <span class="post-date" title="2019-08-13 09:54:41">2019/08/13</span>
+        </a>
+        
+        <a  class="漏洞复现 "
+           href="/2019/10/28/thinkcmf/"
+           data-tag="漏洞复现"
+           data-author="" >
+            <span class="post-title" title="&#39;thinkcmf框架漏洞复现&#39;">&#39;thinkcmf框架漏洞复现&#39;</span>
+            <span class="post-date" title="2019-10-28 19:00:12">2019/10/28</span>
+        </a>
+        
+        <a  class="SQL注入 "
+           href="/2019/08/13/union/"
+           data-tag="SQL注入"
+           data-author="" >
+            <span class="post-title" title="&#39;联合查询&#39;">&#39;联合查询&#39;</span>
+            <span class="post-date" title="2019-08-13 22:54:41">2019/08/13</span>
+        </a>
+        
+        <a  class="SQL注入 "
+           href="/2019/12/06/其他常见类型注入/"
+           data-tag="SQL注入"
+           data-author="" >
+            <span class="post-title" title="&#39;其他常见类型注入&#39;">&#39;其他常见类型注入&#39;</span>
+            <span class="post-date" title="2019-12-06 19:01:00">2019/12/06</span>
+        </a>
+        
+        <a  class="漏洞复现 "
+           href="/2019/11/12/CVE2019-5418/"
+           data-tag="漏洞复现"
+           data-author="" >
+            <span class="post-title" title="CVE2019-5418漏洞复现">CVE2019-5418漏洞复现</span>
+            <span class="post-date" title="2019-11-12 12:00:12">2019/11/12</span>
+        </a>
+        
+        <a  class="XSS "
+           href="/2019/12/10/XSS靶场通关/"
+           data-tag="XSS"
+           data-author="" >
+            <span class="post-title" title="&#39;XSS靶场通关&#39;">&#39;XSS靶场通关&#39;</span>
+            <span class="post-date" title="2019-12-10 09:54:41">2019/12/10</span>
+        </a>
+        
+        <a  class="代码分析 "
+           href="/2019/09/13/webshell分析/"
+           data-tag="代码分析"
+           data-author="" >
+            <span class="post-title" title="&#39;webshell代码分析&#39;">&#39;webshell代码分析&#39;</span>
+            <span class="post-date" title="2019-09-13 12:00:12">2019/09/13</span>
+        </a>
+        
+        <a  class="Linux基础 "
+           href="/2019/08/07/常用命令整理/"
+           data-tag="Linux基础"
+           data-author="" >
+            <span class="post-title" title="&#39;常用命令整理&#39;">&#39;常用命令整理&#39;</span>
+            <span class="post-date" title="2019-08-07 00:00:00">2019/08/07</span>
+        </a>
+        
+        <a  class="XSS "
+           href="/2019/12/12/学习XSS前准备/"
+           data-tag="XSS"
+           data-author="" >
+            <span class="post-title" title="&#39;学习XSS及CSRF前准备&#39;">&#39;学习XSS及CSRF前准备&#39;</span>
+            <span class="post-date" title="2019-12-12 11:54:41">2019/12/12</span>
+        </a>
+        
+        <a  class="基础知识 "
+           href="/2019/08/21/burp使用/"
+           data-tag="基础知识"
+           data-author="" >
+            <span class="post-title" title="&#39;burp使用&#39;">&#39;burp使用&#39;</span>
+            <span class="post-date" title="2019-08-21 21:50:12">2019/08/21</span>
+        </a>
+        
+        <a  class="基础知识 "
+           href="/2019/08/17/文件函数/"
+           data-tag="基础知识"
+           data-author="" >
+            <span class="post-title" title="&#39;文件函数部分&#39;">&#39;文件函数部分&#39;</span>
+            <span class="post-date" title="2019-08-17 20:39:12">2019/08/17</span>
+        </a>
+        
+        <a  class="文件包含 "
+           href="/2019/07/28/文件包含4.8/"
+           data-tag="漏洞复现"
+           data-author="" >
+            <span class="post-title" title="&#39;phpMyAdmin4.8漏洞复现&#39;">&#39;phpMyAdmin4.8漏洞复现&#39;</span>
+            <span class="post-date" title="2019-07-28 09:54:41">2019/07/28</span>
+        </a>
+        
+        <a  class="SQL注入 "
+           href="/2019/12/05/注入基础/"
+           data-tag="SQL注入"
+           data-author="" >
+            <span class="post-title" title="&#39;注入基础&#39;">&#39;注入基础&#39;</span>
+            <span class="post-date" title="2019-12-05 11:45:41">2019/12/05</span>
+        </a>
+        
+        <a  class="SQL注入 "
+           href="/2019/07/31/对某厂商的盲注/"
+           data-tag="SQL注入"
+           data-author="" >
+            <span class="post-title" title="&#39;对某厂商的盲注&#39;">&#39;对某厂商的盲注&#39;</span>
+            <span class="post-date" title="2019-07-31 09:54:41">2019/07/31</span>
+        </a>
+        
+        <a  class="SQL注入 "
+           href="/2019/12/06/注入流程及方式/"
+           data-tag="SQL注入"
+           data-author="" >
+            <span class="post-title" title="&#39;MySQL注入流程及方式&#39;">&#39;MySQL注入流程及方式&#39;</span>
+            <span class="post-date" title="2019-12-06 15:45:41">2019/12/06</span>
+        </a>
+        
+        <a  class="基础知识 "
+           href="/2019/07/31/渗透测试流程/"
+           data-tag="基础知识"
+           data-author="" >
+            <span class="post-title" title="&#39;专业术语及渗透测试流程&#39;">&#39;专业术语及渗透测试流程&#39;</span>
+            <span class="post-date" title="2019-07-31 09:54:41">2019/07/31</span>
+        </a>
+        
+        <a  class="渗透测试 "
+           href="/2019/11/27/渗透测试之谷歌插件/"
+           data-tag="渗透测试"
+           data-author="" >
+            <span class="post-title" title="&#39;渗透测试之谷歌插件&#39;">&#39;渗透测试之谷歌插件&#39;</span>
+            <span class="post-date" title="2019-11-27 23:24:41">2019/11/27</span>
+        </a>
+        
+        <a  class="Linux基础 "
+           href="/2019/07/28/用户权限和组/"
+           data-tag="Linux基础"
+           data-author="" >
+            <span class="post-title" title="&#39;权限问题&#39;">&#39;权限问题&#39;</span>
+            <span class="post-date" title="2019-07-28 09:54:41">2019/07/28</span>
+        </a>
+        
+        <a  class="基础知识 "
+           href="/2019/08/21/绕过token/"
+           data-tag="基础知识"
+           data-author="" >
+            <span class="post-title" title="&#39;绕过DVWA的token&#39;">&#39;绕过DVWA的token&#39;</span>
+            <span class="post-date" title="2019-08-21 21:50:12">2019/08/21</span>
+        </a>
+        
+        <a  class="渗透测试 "
+           href="/2019/12/14/记一次靶场渗透/"
+           data-tag="渗透测试"
+           data-author="" >
+            <span class="post-title" title="&#39;记一次靶场渗透练习&#39;">&#39;记一次靶场渗透练习&#39;</span>
+            <span class="post-date" title="2019-12-14 21:54:41">2019/12/14</span>
+        </a>
+        
+        <a  class="基础知识 "
+           href="/2019/08/12/小程序/"
+           data-tag="基础知识"
+           data-author="" >
+            <span class="post-title" title="&#39;PHP小程序&#39;">&#39;PHP小程序&#39;</span>
+            <span class="post-date" title="2019-08-12 00:00:00">2019/08/12</span>
+        </a>
+        
+        <a  class="SQL注入 "
+           href="/2019/08/28/注入新闻页面/"
+           data-tag="SQL注入"
+           data-author="" >
+            <span class="post-title" title="&#39;注入新闻页面&#39;">&#39;注入新闻页面&#39;</span>
+            <span class="post-date" title="2019-08-28 08:45:41">2019/08/28</span>
+        </a>
+        
+        <a  class="Linux基础 "
+           href="/2019/08/04/防火墙/"
+           data-tag="Linux基础"
+           data-author="" >
+            <span class="post-title" title="&#39;防火墙&#39;">&#39;防火墙&#39;</span>
+            <span class="post-date" title="2019-08-04 00:00:00">2019/08/04</span>
+        </a>
+        
+        <a  class="SQL注入 "
+           href="/2019/12/06/注入之dns/"
+           data-tag="SQL注入"
+           data-author="" >
+            <span class="post-title" title="&#39;DNSlog数据外带及过waf&#39;">&#39;DNSlog数据外带及过waf&#39;</span>
+            <span class="post-date" title="2019-12-06 21:29:00">2019/12/06</span>
+        </a>
+        
+        <a  class="渗透测试 "
+           href="/2019/11/29/badusb制作/"
+           data-tag="渗透测试"
+           data-author="" >
+            <span class="post-title" title="&#39;BadUSB制作&#39;">&#39;BadUSB制作&#39;</span>
+            <span class="post-date" title="2019-11-29 09:25:04">2019/11/29</span>
+        </a>
+        
+        <a  class="SQL注入 "
+           href="/2019/12/07/SQLmap的使用/"
+           data-tag="SQL注入"
+           data-author="" >
+            <span class="post-title" title="&#39;SQLmap的使用&#39;">&#39;SQLmap的使用&#39;</span>
+            <span class="post-date" title="2019-12-07 20:33:12">2019/12/07</span>
+        </a>
+        
+        <a  class="Linux基础 "
+           href="/2019/07/29/linux基础总结/"
+           data-tag="Linux基础"
+           data-author="" >
+            <span class="post-title" title="&#39;LINUX基本命令总结&#39;">&#39;LINUX基本命令总结&#39;</span>
+            <span class="post-date" title="2019-07-29 00:00:00">2019/07/29</span>
+        </a>
+        
+        <a  class="基础知识 "
+           href="/2019/08/17/数据库分类/"
+           data-tag="基础知识"
+           data-author="" >
+            <span class="post-title" title="&#39;数据库部分&#39;">&#39;数据库部分&#39;</span>
+            <span class="post-date" title="2019-08-17 20:33:12">2019/08/17</span>
+        </a>
+        
+        <a  class="基础知识 "
+           href="/2019/08/21/http基础/"
+           data-tag="基础知识"
+           data-author="" >
+            <span class="post-title" title="&#39;httpd知识&#39;">&#39;httpd知识&#39;</span>
+            <span class="post-date" title="2019-08-21 20:13:12">2019/08/21</span>
+        </a>
+        
+        <a  class="渗透测试 "
+           href="/2019/11/27/渗透测试前期信息搜集/"
+           data-tag="渗透测试"
+           data-author="" >
+            <span class="post-title" title="&#39;渗透测试之前期信息搜集&#39;">&#39;渗透测试之前期信息搜集&#39;</span>
+            <span class="post-date" title="2019-11-27 23:04:41">2019/11/27</span>
+        </a>
+        
+        <a  class="基础知识 "
+           href="/2019/08/13/新闻登陆界面/"
+           data-tag="基础知识"
+           data-author="" >
+            <span class="post-title" title="&#39;新闻页面&#39;">&#39;新闻页面&#39;</span>
+            <span class="post-date" title="2019-08-13 09:54:41">2019/08/13</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-PHP数组" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">&#39;PHP循环和数组及函数&#39;</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="基础知识">基础知识</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color5">基础知识</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-08-17 17:12:46'>2019-08-05 00:00</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#循环"><span class="toc-text">循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组"><span class="toc-text">数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数"><span class="toc-text">函数</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">if(控制下边的代码是否执行      写的值为bool    true/false)</span><br><span class="line">循环    在代码中    重复执行一段相同的代码</span><br><span class="line">if判断的时候，如果有值，就为真，没有就为假</span><br><span class="line">if(NULL)&#123;</span><br><span class="line">    echo 1;  //真 </span><br><span class="line">&#125;else&#123;</span><br><span class="line">    echo 2; //假</span><br><span class="line">&#125;</span><br><span class="line">此代码中值为空，所以输出2</span><br><span class="line"></span><br><span class="line">for(控制下边代码执行的次数   放一个变量，变量值会变化</span><br><span class="line">（自增或自减），再放一个条件，条件用来限制这个变量的值)</span><br><span class="line">while()</span><br><span class="line">foreach()</span><br><span class="line"></span><br><span class="line">STDIN获取到的内容，会多处一个换行符</span><br><span class="line">continue （含义：继续） 会跳过当前循环中的代码，强迫开始下一次循环</span><br><span class="line">break 是结束整个循环</span><br></pre></td></tr></table></figure>
+
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">array创建数组</span><br><span class="line">创建数组时，可以直接向数组中赋值，也可以直接创建一个空数组</span><br><span class="line">分为关联数组和索引数组</span><br><span class="line">$arr = array(1,2,3,4);                                     索引数组</span><br><span class="line">取内容      只能通过下标取值</span><br><span class="line">$arr = array(&apos;name&apos; =&gt; &apos;zs&apos; , &apos;age&apos; =&gt; 19);    此为关联数组</span><br><span class="line">取内容     通过键取值</span><br><span class="line"></span><br><span class="line">创建数组三种方式</span><br><span class="line">$arr =  array()          </span><br><span class="line">$arr =  array（1，2，3，4，5）       </span><br><span class="line">$arr =  array（&apos;name&apos; =&gt;&apos;zs&apos;,&apos;age&apos;=&gt;18）</span><br><span class="line">//下边的方法只有在PHP5.4之后才能使用</span><br><span class="line">$arr =  [ ]</span><br><span class="line">$arr =  [1,2,3,4]   </span><br><span class="line">$arr =  [&apos;name&apos; =&gt;&apos;zs&apos;,&apos;age&apos;=&gt;18]</span><br><span class="line"></span><br><span class="line">索引数组</span><br><span class="line">   赋值 </span><br><span class="line">//1， 创建时直接赋值</span><br><span class="line">$arr =  array（1，2，3，4，5）</span><br><span class="line">$arr =  [1,2,3,4]   </span><br><span class="line">//2，先创空数组，然后再更改值</span><br><span class="line">$arr =  array()          </span><br><span class="line">$arr =  array（1，2，3，4，5）  </span><br><span class="line">$arr =  [0]  = 123     // 内容变成==&gt;  [123,2,3,4,5]   </span><br><span class="line">$arr =  [100]  = 456</span><br><span class="line"></span><br><span class="line">取值</span><br><span class="line">1，通过下标取值</span><br><span class="line">2，通过循环遍历</span><br><span class="line">$arr =  array（1，2，3，4，5）  </span><br><span class="line">for（$i = 0; $i &lt; 5;$i ++ ）&#123;</span><br><span class="line">echo $arr[$i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for（$i = 0; $i &lt; count($arr);$i ++ ）&#123;</span><br><span class="line">echo $arr[$i];</span><br><span class="line">&#125;                                    //利用count获取数组个数</span><br><span class="line"></span><br><span class="line">foreach输出          //专门遍历数组</span><br><span class="line">foreach（$arr  as  $key  =&gt; $value）&#123;</span><br><span class="line">           echo  $key . &apos; &apos; . $value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">关联数组</span><br><span class="line">赋值</span><br><span class="line">$arr = array(&apos;name&apos; =&gt; &apos;zhangsan&apos; , &apos;age&apos; =&gt; 19);</span><br><span class="line">$arr = [&apos;name&apos; =&gt; &apos;zhangsan&apos;,&apos;age&apos; =&gt; 19];</span><br><span class="line">$arr = []</span><br><span class="line">$arr = array()</span><br><span class="line">$arr[&apos;name&apos;] = &apos;zs&apos;;  ==&gt;  [&apos;name&apos; =&gt; &apos;zs&apos;]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$_GET[&apos;id&apos;]       $_POST[&apos;uname&apos;]    他们两个是关联数组，找到键就能拿到值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">取值                    //不能够通过下标取值</span><br><span class="line">$arr[&apos;id&apos;]</span><br><span class="line"></span><br><span class="line">遍历关联数组</span><br><span class="line">foreach（$arr  as  $key  =&gt; $value）&#123;</span><br><span class="line">           echo  $key . &apos;=&gt;&apos; . $value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">array_keys输出数组里的所有键          键用数字定义变为下标</span><br><span class="line">array_values输出数组里的所有值</span><br><span class="line">array_merge  把一个或多个数组合并</span><br><span class="line">array_key_exists 判断键是否在数组中</span><br><span class="line">in_array 搜索数组中是否存在指定的值。</span><br><span class="line">array_pop 删除数组里最后一个元素</span><br><span class="line">array_unique（） 删除重复的</span><br><span class="line">count（） 别名sizeof（）      返回数组的数目</span><br><span class="line"></span><br><span class="line">sort() - 对数组进行升序排列</span><br><span class="line">rsort() - 对数组进行降序排列</span><br><span class="line">asort() - 根据关联数组的值，对数组进行升序排列</span><br><span class="line">ksort() - 根据关联数组的键，对数组进行升序排列</span><br><span class="line">arsort() - 根据关联数组的值，对数组进行降序排列</span><br><span class="line">krsort() - 根据关联数组的键，对数组进行降序排列</span><br></pre></td></tr></table></figure>
+
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">什么是函数</span><br><span class="line">1，将一段代码，封装，然后通过名字，可以多次使用</span><br><span class="line">2，把所有提交的数据，进行安全处理</span><br><span class="line">3，把 &apos;  &apos;&apos;  \   \00  &lt;&gt;   转义     and     union    select       order   by    or    这些关键字替换掉</span><br><span class="line"></span><br><span class="line">function safe_echo ($str)&#123;</span><br><span class="line">    echo htmlspecialchars($str);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$data = &quot;&lt;script&gt;alert(/xss/);&lt;/script&gt;&quot;;</span><br><span class="line">safe_echo($data);</span><br></pre></td></tr></table></figure>
+
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在QQ私聊我，也可以邮件至 lingyu195@gmail.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>&#39;PHP循环和数组及函数&#39;</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="素念">素念</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-08-05, 00:00:00</p>
+    <p><span class="copy-title">最后更新:</span>2019-08-17, 17:12:46</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/08/05/PHP数组/" title="&#39;PHP循环和数组及函数&#39;">http://yoursite.com/2019/08/05/PHP数组/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 sunian</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="//cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#Linux基础','#环境搭建','#遇到的问题','#SQL注入','#漏洞复现','#XSS','#基础知识','#代码分析','#渗透测试',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
