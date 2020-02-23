@@ -8,12 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="1">
 <meta property="og:type" content="website">
-<meta property="og:title" content="&#39;关于我&amp;whoami&#39;">
-<meta property="og:url" content="http://yoursite.com/About/index.html">
-<meta property="og:site_name" content="lorry&#39;s Blog">
-<meta property="og:description" content="1">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-02-22T15:41:57.131Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="&#39;关于我&amp;whoami&#39;">
 <meta name="twitter:description" content="1">
@@ -166,12 +160,12 @@
     </div>
     <div class="friends-content">
         <ul>
+		
+            <li><a target="_blank" href="https://www.freebuf.com/">freebuf</a></li>
             
-            <li><a target="_blank" href="1">1</a></li>
+            <li><a target="_blank" href="http://www.52bug.cn//">52bug</a></li>
             
-            <li><a target="_blank" href="2/">2</a></li>
-            
-            <li><a target="_blank" href="3/">3</a></li>
+            <li><a target="_blank" href="https://www.cnvd.org.cn/">国家信息安全漏洞共享平台</a></li>
             
             
         </ul>
@@ -206,10 +200,10 @@
     <nav id="title-list-nav">
         
         <a  class="python"
-           href="2020/02/16/python基础语法/"
-           data-tag="python基础语法"
+           href="2020/02/16/python基础/"
+           data-tag="python基础"
            data-author="" >
-            <span class="post-title" title="&#39;python基础语法&#39;">&#39;python基础语法&#39;</span>
+            <span class="post-title" title="&#39;python基础语法&#39;">&#39;python基础&#39;</span>
             <span class="post-date" title="2020/02/16 00:00:00">2020/02/16</span>
         </a>
         
@@ -234,9 +228,9 @@
 </aside>
 <div class="post"> 
     <div class="pjax">
-        <article id="post-python基础语法" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-python基础" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">&#39;python基础语法&#39;</h1>
+        <h1 class="article-title">&#39;python基础&#39;</h1>
     
     <div class="article-meta">
         
@@ -280,7 +274,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础语法"><span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象查找"><span class="toc-text">对象查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS"><span class="toc-text">JS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery"><span class="toc-text">jQuery</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ajax"><span class="toc-text">ajax</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础"><span class="toc-text">基本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象查找"><span class="toc-text">对象查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS"><span class="toc-text">JS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery"><span class="toc-text">jQuery</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ajax"><span class="toc-text">ajax</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -298,7 +292,7 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><a id="more"></a>
+        <h3 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h3><a id="more"></a>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt; 声明为 HTML5 文档</span><br><span class="line">&lt;html&gt; 是 HTML 页面的根元素</span><br><span class="line">&lt;head&gt; 包含了文档的元（meta）数据，如 &lt;meta charset=<span class="string">"utf-8"</span>&gt; 定义网页编码格式为 utf-8。</span><br><span class="line">&lt;title&gt; 描述了文档的标题</span><br><span class="line">&lt;body&gt; 包含了可见的页面内容</span><br><span class="line">&lt;h1&gt; ~ &lt;h6&gt; 定义标题大小</span><br><span class="line">&lt;p&gt; 定义段落</span><br><span class="line">&lt;img&gt;标签显示图片</span><br><span class="line">&lt;table&gt;表格定义</span><br><span class="line">通常第一行为&lt;tr&gt;&lt;th&gt;    第二行之后为&lt;tr&gt;&lt;td&gt;</span><br><span class="line"></span><br><span class="line">&lt;button&gt;&lt;/button&gt;  勾选按钮</span><br><span class="line">&lt;button onclick=<span class="string">"displayDate()"</span>&gt;现在的时间是?&lt;/button&gt;</span><br><span class="line">//设置一个鼠标点击相应按钮</span><br><span class="line"></span><br><span class="line">&lt;h2 style=<span class="string">"background-color:red;"</span>&gt;这是一个标题&lt;/h2&gt;       设置文字底色为红色</span><br><span class="line"></span><br><span class="line">&lt;a href=<span class="string">""</span>&gt;百度&lt;/a&gt;        网站链接</span><br><span class="line">在&lt;a&gt;标签中设置target属性为_blank ，网站链接就会在新窗口打开</span><br><span class="line"></span><br><span class="line">    &lt;img src=<span class="string">""</span>&gt;           src指向图片位置，发送请求，携带cookie</span><br><span class="line">&lt;body bgcolor=<span class="string">""</span>&gt;           背景颜色bgcolor</span><br><span class="line">&lt;form action=<span class="string">"http://www.baidu.com/s"</span> method=<span class="string">"get"</span>&gt;     get请求百度</span><br><span class="line">表单元素是允许用户在表单中输入内容,比如：文本域(textarea)、下拉列表、单选框(radio-buttons)、复选框(checkboxes)等等。</span><br><span class="line"></span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"wd"</span>&gt;           wd参数</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">"submit"</span> name=<span class="string">"submit"</span>&gt;      submit输入按钮（提交按钮）</span><br><span class="line"></span><br><span class="line">&lt;ul&gt;&lt;li&gt;&lt;li&gt;&lt;/ul&gt; 无序列表，开头用·标记</span><br><span class="line">&lt;ol&gt;&lt;li&gt;&lt;li&gt;&lt;/ol&gt; 有序列表，开头用数字标记</span><br><span class="line"></span><br><span class="line">&lt;div style=<span class="string">"color:#0000FF"</span>&gt;</span><br><span class="line">  &lt;h3&gt;这是一个在 div 元素中的标题。&lt;/h3&gt;</span><br><span class="line">  &lt;p&gt;这是一个在 div 元素中的文本。&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;            div标签将区域文字颜色变为蓝色 （属于块级元素）</span><br><span class="line"></span><br><span class="line">&lt;p&gt;陶泥猴子&lt;span style=<span class="string">"color:bule;font-weight:bold"</span>&gt;代码&lt;/span&gt;好难啊&lt;/p&gt;</span><br><span class="line">        而span标签将文本中的一部分进行编辑， 这里是将“代码”变为蓝色</span><br></pre></td></tr></table></figure>
 
 <h3 id="对象查找"><a href="#对象查找" class="headerlink" title="对象查找"></a>对象查找</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">console 中的利用document.getElementById(<span class="string">'id-1'</span>).href</span><br><span class="line">查找id-1的参数</span><br><span class="line">document.getElementByTagName（<span class="string">'p'</span>）</span><br><span class="line">查找p标签</span><br><span class="line">标签元素所有内容都可以进行修改</span><br><span class="line"></span><br><span class="line">&lt;p style= <span class="string">"display:none"</span>&gt;&lt;/p&gt;       嵌入式隐藏</span><br><span class="line"></span><br><span class="line">document.getElementById        id查找</span><br><span class="line">document.getElementById(<span class="string">"uid"</span>).value        //获取ID=uid的value值</span><br><span class="line">document.getElementByTagName     标签名查找    //对象 里有各种   属性  .src   方法 .click()</span><br><span class="line">document.getElementsByTagName(<span class="string">"input"</span>).[0]  //查看第一个input标签的元素</span><br><span class="line">document.getElementByClassName       类名查找</span><br><span class="line">innerHTML 修改文本</span><br><span class="line"><span class="keyword">function</span> （）&#123;alert（1）;&#125;   触发弹窗事件</span><br><span class="line">displayData时间函数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">createTextNode(<span class="string">'hello word!'</span>); 添加文本事件</span><br><span class="line">addEventListener</span><br><span class="line"></span><br><span class="line">required οnblur=<span class="string">"checkPwd(this.value)"</span>密码隐藏</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var h1 = document.createElement（<span class="string">'h1'</span>);创建标签h1</span><br><span class="line">&lt;h1&gt;&lt;/h1&gt;            //对象    所有属性都是空的，所有方法不能使用，只有把他加入到body中，方法才能使用，属性才生效</span><br><span class="line">//document.getElementById(<span class="string">'pid'</span>)属性，方法</span><br><span class="line">var data = document.createTextNote(‘这是一个h1标签’)</span><br><span class="line">p.appendChild(data);</span><br><span class="line"></span><br><span class="line">document.body.appendChild（h1）才相当于把h1标签放到html中</span><br></pre></td></tr></table></figure>
