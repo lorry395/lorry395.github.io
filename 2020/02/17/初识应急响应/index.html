@@ -128,23 +128,18 @@
 
 <ul>
     <li><div class="all active">全部文章<small>(5)</small></div></li>
-    
-        
-            
+
             <li><div data-rel="python">python<small>(3)</small></div>
                 
             </li>
-            
-        
-    
-        
-            
+
             <li><div data-rel="应急响应">应急响应<small>(2)</small></div>
                 
             </li>
-            
+
+            <li><div data-rel="渗透测试">渗透测试<small>(0)</small></div>   
+            </li>
         
-    
 </ul>
 <div class="left-bottom">
     <div class="menus">
@@ -201,6 +196,8 @@
     <li class="article-tag-list-item">
         <a href="javascript:" class="color5">应急响应</a>
     </li>
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">渗透测试</a>
     
     <div class="clearfix"></div>
 </div>
@@ -209,7 +206,7 @@
     <nav id="title-list-nav">
         
         <a  class="python"
-           href="2020/02/16/python1/"
+           href="2020/02/16/python基础语法/"
            data-tag="python基础语法"
            data-author="" >
             <span class="post-title" title="&#39;python基础语法&#39;">&#39;python基础语法&#39;</span>
@@ -217,7 +214,7 @@
         </a>
         
         <a  class="应急响应 "
-           href="2020/02/17/应急响应1/"
+           href="2020/02/17/初识应急响应/"
            data-tag="应急响应"
            data-author="" >
             <span class="post-title" title="&#39;初识应急响应&#39;">&#39;初识应急响应&#39;</span>
@@ -281,7 +278,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#Linux基础','#环境搭建','#遇到的问题','#SQL注入','#漏洞复现','#XSS','#基础知识','#代码分析','#渗透测试',],
+            'data': ['#python','#应急响应','#渗透测试',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
