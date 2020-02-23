@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>Sunian&#39;s Blog</title>
-  <meta name="keywords" content>
-  <meta name="description" content="Sunian&#39;s Blog">
+  <title>&#39;XSS基础&#39; | Sunian&#39;s Blog</title>
+  <meta name="keywords" content=" XSS ">
+  <meta name="description" content="&#39;XSS基础&#39; | Sunian&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简历素念，男，19岁 现读于某大专院校，汽修专业，自学web安全 专注于研究渗透测试方向 web安全，内网，硬件，社工等 联系方式QQ：3504078815 邮箱：lingyu195@gmail.com">
 <meta property="og:type" content="website">
@@ -52,7 +52,7 @@
 </div>
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/imgss/touxiang.jpg" />
@@ -681,12 +681,55 @@
         </div>
     </div>
 </aside>
-<div class="post index">
+<div class="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-XSS基础" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#记一次360笔试题"><span class="toc-text">记一次360笔试题</span></a></li></ol>
+        <h1 class="article-title">&#39;XSS基础&#39;</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="XSS">XSS</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color4">XSS</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-12-13 16:30:06'>2019-12-11 11:54</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是XSS"><span class="toc-text">什么是XSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的XSS攻击手段和目的"><span class="toc-text">常用的XSS攻击手段和目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分类"><span class="toc-text">分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三类原理简述"><span class="toc-text">三类原理简述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#漏洞防御"><span class="toc-text">漏洞防御</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -699,33 +742,51 @@
     }
 </style>
 </div>
-            <h3 id="记一次360笔试题"><a href="#记一次360笔试题" class="headerlink" title="记一次360笔试题"></a>记一次360笔试题</h3><ol>
-<li><p>如果存在SQL注入怎么判断不同的数据库。</p>
-</li>
-<li><p>简述下浏览器的自解码机制。</p>
-</li>
-<li><p>拿到目标站怎么进行渗透，需要注意什么。</p>
-</li>
-<li><p>CSRF漏洞的原理是什么？怎么修复？</p>
-</li>
-<li><p>代码审计怎么做？</p>
-</li>
-<li><p>哪些漏洞是WAF不能防御的？请举出至少三类漏洞。</p>
-</li>
-<li><p>考虑以下场景：一个多用户的博客系统（类似于CSDN），普通用户登陆到个人中心后，发现删除自己某篇文章所请求的URI为delete.php?article_id=24，请考虑这个地方最有可能出现哪些安全问题？</p>
-</li>
-<li><p>PHP5环境下，如果配置文件中magic_quotes_gpc为On，则PHP会对请求参数中的哪些字符进行自动转义？</p>
-</li>
-<li><p>使用sqlmap工具进行sql注入漏洞利用时，可以尝试使用（）选项获取一个操作系统shell。</p>
-</li>
-<li><p>渗透时后端环境是apache+php+mysql的情况下，利用sql注入写webshell一般来说需要满足三个条件：1.mysql用户需要有（）权限；2.需要知道（）路径；3.（）（符号）不能被过滤。</p>
-</li>
-</ol>
-<p>欢迎加入知识星球，获取参考答案及更多渗透资料<br><img src="/imgss/tu52.png" alt=""></p>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是XSS"><a href="#什么是XSS" class="headerlink" title="什么是XSS"></a>什么是XSS</h3><p>跨站脚本攻击，是一种针对网站应用程序的安全漏洞攻击技术，是代码注入的一种。它允许恶意用户将代码注入网页，其他用户在浏览网页时就会受到影响。恶意用户利用XSS代码攻击成功后，可能得到很高的权限(如执行一些操作)、私密网页内容、会话和cookie等各种内容。</p>
+<h3 id="常用的XSS攻击手段和目的"><a href="#常用的XSS攻击手段和目的" class="headerlink" title="常用的XSS攻击手段和目的"></a>常用的XSS攻击手段和目的</h3><p>1.盗用cookie，获取敏感信息。<br>2.利用植入Flash，通过crossdomain权限设置进一步获取更高权限；或者利用Java等得到类似的操作。<br>3.利用iframe、frame、XMLHttpRequest或上述Flash等方式，以（被攻击）用户的身份执行一些管理动作，或执行一些一般的操作如发微博、加好友、发私信等操作。<br>4.利用可被攻击的域受到其他域信任的特点，以受信任来源的身份请求一些平时不允许的操作，如进行不当的投票活动。<br>5.在访问量极大的一些页面上的XSS可以攻击一些小型网站，实现DDOS攻击的效果。</p>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>1，反射型<br>又称非持久性XSS，这种攻击方式只能执行一次。<br>反射型 XSS 的利用一般是攻击者通过特定手法（如电子邮件），诱使用户去访问一个包含恶意代码的 URL，当受害者点击这些专门设计的链接的时候，服务器接受该目标用户的请求并处理，然后服务器把带有XSS代码的数据发送给目标用户的浏览器，浏览器解析后触发XSS代码。此类 XSS 通常出现在网站的搜索栏、用户登录口等地方，常用来窃取客户端 Cookies 或进行钓鱼欺骗。</p>
+<p>2，存储型<br>又称持久性XSS，攻击脚本永久的存放在目标服务器的数据库或文件中。<br>攻击者事先将恶意代码上传或储存到漏洞服务器中，只要受害者浏览包含此恶意代码的页面就会执行恶意代码。持久型 XSS 一般出现在网站留言、评论、博客日志等交互处，恶意脚本存储到客户端或者服务端的数据库中。<br>例如，攻击者在留言板中插入以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(/hacker by sunian/)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-        </article>
-        
-        
+<p>当其他用户访问留言板时，就会看到一个弹窗。</p>
+<p>3，DOM型<br>DOM全称Document Object Model，使用DOM可以使程序和脚本能够动态访问和更新文档内容、结构及样式。<br>客户端 JavaScript 可以访问浏览器的 DOM 文本对象模型，因此能够决定用于加载当前页面的 URL。换句话说，客户端的脚本程序可以通过 DOM 动态地检查和修改页面内容，它不依赖于服务器端的数据，而从客户端获得 DOM 中的数据（如从 URL 中提取数据）并在本地执行。另一方面，浏览器用户可以操纵 DOM 中的一些对象，例如 URL、location 等。用户在客户端输入的数据如果包含了恶意 JavaScript 脚本，而这些脚本没有经过适当的过滤和转义，那么应用程序就可能受到基于 DOM 的 XSS 攻击。(不与服务器交互，只发生在客户端处理数据的阶段)</p>
+<p>利用方式:用户经过一个专门设计的URL，它由攻击者提交，而且包含XSS代码。服务器的响应不会包含攻击者的脚本。当用户的浏览器处理这个响应时，DOM对象就会处理XSS代码，导致XSS漏洞</p>
+<p>漏洞利用资料<a href="https://www.4hou.com/technology/12234.html" target="_blank" rel="noopener">https://www.4hou.com/technology/12234.html</a> (反射性和DOM型的利用方式相似)</p>
+<h3 id="三类原理简述"><a href="#三类原理简述" class="headerlink" title="三类原理简述"></a>三类原理简述</h3><p>1，反射型XSS原理：用户访问一个带有XSS代码的URL请求时，服务端接收数据后处理，然后把带有XSS代码 的数据发送到浏览器，浏览器解析代码的数据，造成XSS漏洞。</p>
+<p>2，存储型XSS原理：攻击者提交XSS代码后，被服务端数据库接受并存储，当用户访问时，这段代码程序被读出相应给到浏览器，造成XSS跨站脚本攻击。</p>
+<p>3，DOM型XSS原理：客户端获得DOM中的数据在本地执行，如果DOM中的数据没有经过严格确认，就会产生DOM型XSS漏洞</p>
+<h3 id="漏洞防御"><a href="#漏洞防御" class="headerlink" title="漏洞防御"></a>漏洞防御</h3><p>1，过滤输入的数据，如’ “ &lt; &gt; on* 等非法字符<br>2，对输入的数据进行HTML实体编码，JS编码<br>3，使用HttpOnly，但httponly只能防止获取cookie，不能防XSS（面试时可能会问）</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在QQ私聊我，也可以邮件至 lingyu195@gmail.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>&#39;XSS基础&#39;</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="素念">素念</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-12-11, 11:54:41</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-13, 16:30:06</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/11/XSS基础/" title="&#39;XSS基础&#39;">http://yoursite.com/2019/12/11/XSS基础/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">©2016-2019 sunian</p>

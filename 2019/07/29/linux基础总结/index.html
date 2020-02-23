@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>Sunian&#39;s Blog</title>
-  <meta name="keywords" content>
-  <meta name="description" content="Sunian&#39;s Blog">
+  <title>&#39;LINUX基本命令总结&#39; | Sunian&#39;s Blog</title>
+  <meta name="keywords" content=" Linux基础 ">
+  <meta name="description" content="&#39;LINUX基本命令总结&#39; | Sunian&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简历素念，男，19岁 现读于某大专院校，汽修专业，自学web安全 专注于研究渗透测试方向 web安全，内网，硬件，社工等 联系方式QQ：3504078815 邮箱：lingyu195@gmail.com">
 <meta property="og:type" content="website">
@@ -52,7 +52,7 @@
 </div>
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/imgss/touxiang.jpg" />
@@ -681,12 +681,55 @@
         </div>
     </div>
 </aside>
-<div class="post index">
+<div class="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-linux基础总结" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#记一次360笔试题"><span class="toc-text">记一次360笔试题</span></a></li></ol>
+        <h1 class="article-title">&#39;LINUX基本命令总结&#39;</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="Linux基础">Linux基础</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color3">Linux基础</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-11-30 13:17:21'>2019-07-29 00:00</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一，开关机及重启"><span class="toc-text">一，开关机及重启</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#重启"><span class="toc-text">重启</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关机"><span class="toc-text">关机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#杂项"><span class="toc-text">杂项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ls"><span class="toc-text">ls</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cd"><span class="toc-text">cd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pwd"><span class="toc-text">pwd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cat"><span class="toc-text">cat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#find"><span class="toc-text">find</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#grep"><span class="toc-text">grep</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tar"><span class="toc-text">tar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#touch"><span class="toc-text">touch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mkdir"><span class="toc-text">mkdir</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mv"><span class="toc-text">mv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less"><span class="toc-text">less</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cp"><span class="toc-text">cp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#whereis"><span class="toc-text">whereis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#which"><span class="toc-text">which</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ping"><span class="toc-text">ping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ifconfig"><span class="toc-text">ifconfig</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chmod"><span class="toc-text">chmod</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chown"><span class="toc-text">chown</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jobs"><span class="toc-text">jobs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bg"><span class="toc-text">bg</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fg"><span class="toc-text">fg</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ps"><span class="toc-text">ps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nopub"><span class="toc-text">nopub</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#useradd"><span class="toc-text">useradd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#usermod"><span class="toc-text">usermod</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#userdel"><span class="toc-text">userdel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#groupdel"><span class="toc-text">groupdel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#groupmod"><span class="toc-text">groupmod</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#passwd"><span class="toc-text">passwd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#newgrp"><span class="toc-text">newgrp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rm"><span class="toc-text">rm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rmdir"><span class="toc-text">rmdir</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#netstat"><span class="toc-text">netstat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#head"><span class="toc-text">head</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tail"><span class="toc-text">tail</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chsh"><span class="toc-text">chsh</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -699,33 +742,79 @@
     }
 </style>
 </div>
-            <h3 id="记一次360笔试题"><a href="#记一次360笔试题" class="headerlink" title="记一次360笔试题"></a>记一次360笔试题</h3><ol>
-<li><p>如果存在SQL注入怎么判断不同的数据库。</p>
-</li>
-<li><p>简述下浏览器的自解码机制。</p>
-</li>
-<li><p>拿到目标站怎么进行渗透，需要注意什么。</p>
-</li>
-<li><p>CSRF漏洞的原理是什么？怎么修复？</p>
-</li>
-<li><p>代码审计怎么做？</p>
-</li>
-<li><p>哪些漏洞是WAF不能防御的？请举出至少三类漏洞。</p>
-</li>
-<li><p>考虑以下场景：一个多用户的博客系统（类似于CSDN），普通用户登陆到个人中心后，发现删除自己某篇文章所请求的URI为delete.php?article_id=24，请考虑这个地方最有可能出现哪些安全问题？</p>
-</li>
-<li><p>PHP5环境下，如果配置文件中magic_quotes_gpc为On，则PHP会对请求参数中的哪些字符进行自动转义？</p>
-</li>
-<li><p>使用sqlmap工具进行sql注入漏洞利用时，可以尝试使用（）选项获取一个操作系统shell。</p>
-</li>
-<li><p>渗透时后端环境是apache+php+mysql的情况下，利用sql注入写webshell一般来说需要满足三个条件：1.mysql用户需要有（）权限；2.需要知道（）路径；3.（）（符号）不能被过滤。</p>
-</li>
-</ol>
-<p>欢迎加入知识星球，获取参考答案及更多渗透资料<br><img src="/imgss/tu52.png" alt=""></p>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一，开关机及重启"><a href="#一，开关机及重启" class="headerlink" title="一，开关机及重启"></a>一，开关机及重启</h2><h3 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h3><p>reboot<br>init 6<br>shutdown -r</p>
+<h3 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h3><p>shutdown -h now<br>halt<br>init 0<br>poweroff</p>
+<h3 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h3><p>logout注销用户<br>exit退出控制台<br>init 3以纯文本模式启动<br>init 5图形模式<br>yum groupinstall “development tools” -y  命令工具包<br>yum install bash-completion -y  增强tab键</p>
+<h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><p>主要功能：列出目标目录中所有子目录和文件夹<br>主要参数：<br>-a 列出目录下的所有文件，包括以.开头的隐藏文件<br>-l 列出文件的权限、所有者、文件大小等详细信息<br>-d 仅列出目录本身，而不是列出目录的文件数据<br>-h 将文件容量以轻易读的方式（GB,KB等）列出来<br>-R 连同子目录的内容一起（递归列出）</p>
+<h3 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /      <span class="comment">#切换路径为系统根目录</span></span><br><span class="line"><span class="built_in">cd</span> ~admin <span class="comment">#切换到admin用户主目录</span></span><br><span class="line"><span class="built_in">cd</span> ../     <span class="comment">#切换到上一层目录</span></span><br><span class="line"><span class="built_in">cd</span> -      <span class="comment">#切换到进入此目录之前所在的目录</span></span><br></pre></td></tr></table></figure>
 
-        </article>
-        
-        
+<h3 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h3><p>主要功能：查看当前工作目录的完整路径</p>
+<h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><p>查看文件内容   -n 显示 每行的行号<br>cat f1.txt &gt; f2.txt  查看并复制文件</p>
+<h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">主要功能：用于查找特定文件</span><br><span class="line">-name 查找具有指定文件名的文件</span><br><span class="line">-perm 查找具有指定权限的文件</span><br><span class="line">find /demo -perm 755  在demo目录下查找755权限的文件</span><br><span class="line">find /etc -name &quot;*.conf&quot; 在etc下查找所有文件后缀为conf的文件</span><br></pre></td></tr></table></figure>
+
+<h3 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h3><p>主要功能：用于过滤/搜索的特定字符,可使用正则表达式<br>grep ‘hello’ 1.txt 在1.txt中查找hello<br>grep -i 使它不区分大写小写<br>sudo ls /etc |grep ‘pa’   在etc中查找含有pa的文件</p>
+<h3 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h3><p>主要功能：用来压缩和解压缩文件<br>-c 建立新的压缩文件<br>-x从压缩文件中提取文件<br>-z支持gzip解压文件<br>-v显示操作过程<br>-f指定压缩文件<br>通常使用zxvf来解压     打包用cvf     打包压缩用zcvf<br>（zip文件用unzip来解压）</p>
+<h3 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h3><p>主要功能：更改文件时间戳或创建文件<br>-t 使用指定的日期时间，而非现在的时间<br>touch 1.txt 创建1.txt文件<br>touch -t  1907301130 1.txt 改变1.txt文件为指定时间</p>
+<h3 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h3><p>主要功能：在指定位置创建指定的文件夹或目录<br>-p ：自动逐级建立文件夹</p>
+<h3 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h3><p>主要功能：将文件重命名或将其移至一个新的目录中<br>-b ：若需覆盖文件，则覆盖前先行备份。<br>-f ：如果目标文件已经存在，不会询问而直接覆盖；<br>mv  1.txt  2.log 将1.txt重命名为2.log<br>mv  1.txt  /etc 将1.txt移动到/etc目录</p>
+<h3 id="less"><a href="#less" class="headerlink" title="less"></a>less</h3><p>主要功能：按页来翻看文件的内容<br>-m 显示类似more命令的百分比<br>-N 显示每行的行号<br>-o 保存输出的内容<br>less -m /etc/passwd   #翻页来查看/etc/passwd的内容<br>扩展：more查看内容较多的文件   按q停止显示<br>less用法和more类似，但可以利用上下键卷动文件</p>
+<h3 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h3><p>主要功能：将源文件复制至目标文件，或将多个源文件复制至目标目录<br>-R ：复制目录及目录内的所有项目<br>cp -r /指定目录或文件<br>扩展：cp -r 会把所有source当作普通文件（regular文件）；<br>而cp -R 对特殊文件（管道文件，块设备文件，字符设备文件）会进行创建操作，而不是拷贝。</p>
+<h3 id="whereis"><a href="#whereis" class="headerlink" title="whereis"></a>whereis</h3><p>主要功能：查找某个可执行文件，源代码文件，帮助文件或程序所在位置<br>-b 定位可执行文件<br>-s定位源代码文件</p>
+<h3 id="which"><a href="#which" class="headerlink" title="which"></a>which</h3><p>搜索PATH变量中某个系统命令的位置<br>which pwd #搜索pwd命令所在路径<br>(它与whereis的区别就是，which只能搜索命令位置)</p>
+<h3 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h3><p>主要功能：查看网络上另一个主机系统的网络连接是否正常<br>-c 在发送指定数量的包后停止<br>ping -c 4 127.0.0.1     #ping本地主机4次</p>
+<h3 id="ifconfig"><a href="#ifconfig" class="headerlink" title="ifconfig"></a>ifconfig</h3><p>主要功能：查看和配置网络设备<br>up 启动指定网络设备/网卡<br>down 关闭指定网络设备/网卡<br>-a 显示全部接口信息<br>ifconfig eth0 up 开启网卡eth0</p>
+<h3 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h3><p>主要功能：用于改变文件或目录的访问权限<br>-R ：处理指定目录以及其子目录下的所有文件权限范围<br>u ：目录或者文件的当前的用户<br>g ：目录或者文件的当前的群组<br>o ：除了目录或者文件的当前用户或群组之外的用户或者群组<br>a ：所有的用户及群组及其他用户<br>Chmod a+x 1.txt 将1.txt文件所有的用户及群组增加执行权限<br>=赋予给定权限并取消其他所有权限（如果有的话）</p>
+<h3 id="chown"><a href="#chown" class="headerlink" title="chown"></a>chown</h3><p>主要功能：改变文件的拥有者和群组<br>-R ：处理指定目录以及其目录下的所有文件<br>chown apache:xiaohong test.txt   #改变test.txt文件的用户拥有者为apache，群组为xiaohong</p>
+<h3 id="jobs"><a href="#jobs" class="headerlink" title="jobs"></a>jobs</h3><p>主要功能：查看当前正在运行的任务<br>jobs命令只看当前终端生效的，关闭终端后，在另一个终端jobs已经无法看到后台跑得程序了，此时利用ps（进程查看命令）</p>
+<h3 id="bg"><a href="#bg" class="headerlink" title="bg"></a>bg</h3><p>将指定作业放到后台执行<br>bg %1  不带%时默认最后一个进程</p>
+<h3 id="fg"><a href="#fg" class="headerlink" title="fg"></a>fg</h3><p>将指定作业放到前台执行</p>
+<h3 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h3><p>主要功能：显示当前进程状态<br>a:显示所有程序<br>u:以用户为主的格式来显示<br>x:显示所有程序，不以终端机来区分<br>-aux  #列出目前所有正在内存中的程序<br>以下这条命令是检查java 进程是否存在：ps -ef |grep java<br>ps -ef显示所有进程<br>ps -aux|grep chat.js    将ps命令和grep结合</p>
+<h3 id="nopub"><a href="#nopub" class="headerlink" title="nopub"></a>nopub</h3><p>不挂断地运行命令<br>nohup ping 127.0.0.1 &amp;    后台运行ping命令<br>ifconfig &gt; file  把命令输出到文件里<br>扩展：   nohup command &gt; myout.file 2&gt;&amp;1 &amp;<br>2&gt;&amp;1是将错误信息重定向到标准输出，标准输出再被重定向输入到myout.file文件中<br>标准输入 代码为0，使用&lt;或&lt;&lt;<br>标准输出 代码为1，使用&gt;或&gt;&gt;<br>错误输出 代码为2，使用2&gt;或2&gt;&gt;<br> nohup sh test.sh<br>将sh test.sh任务放到后台，关闭标准输入，终端不再能够接收任何输入（标准输入），<br>重定向标准输出和标准错误到当前目录下的nohup.out文件，即使关闭xshell退出当前session依然继续运行。<br> nohup sh test.sh  &amp;<br>将sh test.sh任务放到后台，但是依然可以使用标准输入，终端能够接收任何输入，<br>重定向标准输出和标准错误到当前目录下的nohup.out文件，即使关闭xshell退出当前session依然继续运行。</p>
+<h3 id="useradd"><a href="#useradd" class="headerlink" title="useradd"></a>useradd</h3><p>主要功能：建立新用户<br>-d 指定用户登入时的启始目录<br>-g 指定用户所属群组<br>-m 自动建立用户的登入目录<br>-M 不要自动建立用户的登入目录  （不创建home）<br>-N 不创建用户组<br>-u 指定用户ID<br>-r 建立系统账号<br>-s 指定用户登录后所使用的Shell<br>useradd -g username groupname #为添加的用户指定相应的用户组</p>
+<h3 id="usermod"><a href="#usermod" class="headerlink" title="usermod"></a>usermod</h3><p>主要功能:修改用户账号属性<br>-s 修改用户登陆时的shell<br>-g 修改用户所属群组<br>-G 修改用户所属的附加群组<br>-l 修改账户名称<br>-u 修改用户id<br>-L 锁定账户<br>-U 接触密码锁定<br>-e 改变账号过期时间<br>-d 修改用户登录时的目录<br>usermod -G root bbb  将用户bbb加到root用户组<br>usermod -s /sbin/nologin leafer   #给leafer一个非登录shell</p>
+<h3 id="userdel"><a href="#userdel" class="headerlink" title="userdel"></a>userdel</h3><p>主要功能：用于删除用户账号<br>-r 删除用户登录目录以及目录中所有文件</p>
+<h3 id="groupdel"><a href="#groupdel" class="headerlink" title="groupdel"></a>groupdel</h3><p>主要功能：删除用户组<br>groupadd -g 101 group2    指定在GID101中添加用户组</p>
+<h3 id="groupmod"><a href="#groupmod" class="headerlink" title="groupmod"></a>groupmod</h3><p>groupmod  -g修改既有的GID<br>-n修改既有的用户组名称<br>groupmod -n group regroup  重命名群组为regroup</p>
+<h3 id="passwd"><a href="#passwd" class="headerlink" title="passwd"></a>passwd</h3><p>主要功能：用来更改使用者的密码<br>-d 删除密码<br>-f 强制执行<br>-l 停止账号使用  账号禁用  shadow中的！！双感叹号<br>-u 启动停止账号   解锁账号<br>-g 修改群组密码<br>-S显示用户密码<br>gpasswd -d sunian root</p>
+<h3 id="newgrp"><a href="#newgrp" class="headerlink" title="newgrp"></a>newgrp</h3><p>主要功能：用于登录另一个群组<br>newgrp root 改变当前用户群组为root组，前提是要切换的用户已经添加到后面的组中</p>
+<h3 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h3><p>主要功能：删除一个目录中的一个或多个文件或目录<br>-f 强制删除，不会出现警告消息<br>-r 递归删除，常用于目录删除<br>-v 详细显示进行的步骤<br>别问，问就是rm -rf</p>
+<h3 id="rmdir"><a href="#rmdir" class="headerlink" title="rmdir"></a>rmdir</h3><p>主要功能：从一个目录中删除一个或多个子目录项<br>-p:递归删除目录<br>rmdir -p demo 逐级删除demo文件夹下的目录</p>
+<h3 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h3><p>netstat -ano 查看网络状态<br>-p     显示pid<br>-n     不解析服务名，如ssh，smtp等<br>-a     显示所有sockets<br>-l     显示监听的sockets<br>-t     流量走tcp协议<br>0.0.0.0：5355监听任意来源传递的数据<br>Recv-Q接受    send-Q发送<br>windows中netstat  -a即可</p>
+<p>扩展：  nslookup   查看DNS信息<br>nslookup  指定域名 指定服务器     可使用查询真实ip<br>nslookup  <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a>   8.8.8.8<br>top实时查看运行的程序<br>service 使用服务器控制器<br>service network restart  重启网卡<br>service network-manager restart       有些linux需要用此命令重启网卡</p>
+<h3 id="head"><a href="#head" class="headerlink" title="head"></a>head</h3><p>主要功能：显示文件的前几行<br>head a.txt  查看a.txt前十行</p>
+<h3 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h3><p>主要功能：显示文件的后几行 动态显示<br>tail  a.txt  查看a.txt后十行<br>tail -f a.txt   动态查看文件更新的内容</p>
+<h3 id="chsh"><a href="#chsh" class="headerlink" title="chsh"></a>chsh</h3><p>主要功能：用于修改登陆后的shell<br>-s:指定登录shell<br>-l:查看本机安装了哪些shell<br>使用 chsh -s /sbin/nologin sunian 可以使passwd 中sunian后的/bin/bash 变成/sbin/nologin</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在QQ私聊我，也可以邮件至 lingyu195@gmail.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>&#39;LINUX基本命令总结&#39;</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="素念">素念</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-07-29, 00:00:00</p>
+    <p><span class="copy-title">最后更新:</span>2019-11-30, 13:17:21</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/07/29/linux基础总结/" title="&#39;LINUX基本命令总结&#39;">http://yoursite.com/2019/07/29/linux基础总结/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">©2016-2019 sunian</p>

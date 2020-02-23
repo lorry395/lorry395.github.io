@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>Sunian&#39;s Blog</title>
-  <meta name="keywords" content>
-  <meta name="description" content="Sunian&#39;s Blog">
+  <title>&#39;burp使用&#39; | Sunian&#39;s Blog</title>
+  <meta name="keywords" content=" 基础知识 ">
+  <meta name="description" content="&#39;burp使用&#39; | Sunian&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简历素念，男，19岁 现读于某大专院校，汽修专业，自学web安全 专注于研究渗透测试方向 web安全，内网，硬件，社工等 联系方式QQ：3504078815 邮箱：lingyu195@gmail.com">
 <meta property="og:type" content="website">
@@ -52,7 +52,7 @@
 </div>
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/imgss/touxiang.jpg" />
@@ -681,12 +681,55 @@
         </div>
     </div>
 </aside>
-<div class="post index">
+<div class="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-burp使用" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#记一次360笔试题"><span class="toc-text">记一次360笔试题</span></a></li></ol>
+        <h1 class="article-title">&#39;burp使用&#39;</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="基础知识">基础知识</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color5">基础知识</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-08-22 10:47:42'>2019-08-21 21:50</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置代理"><span class="toc-text">配置代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模块介绍"><span class="toc-text">模块介绍</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -699,33 +742,44 @@
     }
 </style>
 </div>
-            <h3 id="记一次360笔试题"><a href="#记一次360笔试题" class="headerlink" title="记一次360笔试题"></a>记一次360笔试题</h3><ol>
-<li><p>如果存在SQL注入怎么判断不同的数据库。</p>
-</li>
-<li><p>简述下浏览器的自解码机制。</p>
-</li>
-<li><p>拿到目标站怎么进行渗透，需要注意什么。</p>
-</li>
-<li><p>CSRF漏洞的原理是什么？怎么修复？</p>
-</li>
-<li><p>代码审计怎么做？</p>
-</li>
-<li><p>哪些漏洞是WAF不能防御的？请举出至少三类漏洞。</p>
-</li>
-<li><p>考虑以下场景：一个多用户的博客系统（类似于CSDN），普通用户登陆到个人中心后，发现删除自己某篇文章所请求的URI为delete.php?article_id=24，请考虑这个地方最有可能出现哪些安全问题？</p>
-</li>
-<li><p>PHP5环境下，如果配置文件中magic_quotes_gpc为On，则PHP会对请求参数中的哪些字符进行自动转义？</p>
-</li>
-<li><p>使用sqlmap工具进行sql注入漏洞利用时，可以尝试使用（）选项获取一个操作系统shell。</p>
-</li>
-<li><p>渗透时后端环境是apache+php+mysql的情况下，利用sql注入写webshell一般来说需要满足三个条件：1.mysql用户需要有（）权限；2.需要知道（）路径；3.（）（符号）不能被过滤。</p>
-</li>
-</ol>
-<p>欢迎加入知识星球，获取参考答案及更多渗透资料<br><img src="/imgss/tu52.png" alt=""></p>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="配置代理"><a href="#配置代理" class="headerlink" title="配置代理"></a>配置代理</h3><p>burp suit的代理设置<br><img src="/imgss/49.png" alt><br>浏览器代理设置，火狐为例，网络设置中配置如下<br><img src="/imgss/50.png" alt></p>
+<h3 id="模块介绍"><a href="#模块介绍" class="headerlink" title="模块介绍"></a>模块介绍</h3><p>一、proxy模块<br>作用：通过代理模式，让我们拦截、查看、修改所有在客户端与服务端之间传输的数据<br><img src="/imgss/51.png" alt><br>Forward代表将拦截的数据包发送至服务端（拦截放行）<br>Drop代表丢弃当前拦截数据包<br>Intercept is on/off  开启拦截或关闭拦截功能<br>Action功能和鼠标右击相同，将数据包发送至其他模块，进行进一步测试</p>
+<p>Raw主要显示web请求的raw格式，以纯文本形式显示数据包<br>Hex对应信息的二进制内容，可以对请求内容进行修改，在进行截断00时非常好用</p>
+<p>二、Dashboard模块（2.0后把spider和scanner模块合并）<br>作用：帮助我们了解系统结构<br><img src="/imgss/52.png" alt><br>scan为蜘蛛爬行功能（或Target中右击目录选取scan），爬取网站的结构，放到Target中，标识蓝色框中为URL<br><img src="/imgss/53.png" alt><br>Target中左侧为一个主机和目录树，选择具体某一个分支可查看对应的请求与响应<br><img src="/imgss/55.png" alt><br>右击选取此选项，作用为将漏洞报告以html文件格式保存</p>
+<p>三、Decoder模块(编码解码)<br>作用：它是burp中自带的编码解码及散列转换工具<br><img src="/imgss/54.png" alt><br>箭头为编码解码选项</p>
+<p>四、Intruder模块（爆破部分）<br>对web应用程序进行自动化攻击，爆破模块<br>示例：抓取带有admin和password参数的页面，发送到Intruder模块<br><img src="/imgss/56.png" alt><br>clear清除所有变量值<br><img src="/imgss/57.png" alt><br>给password参数加上add变量<br>sniper（狙击手）模式，对单一payload值进行破解<br><img src="/imgss/58.png" alt><br>根据长度不同，查看密码结果，密码为password<br><img src="/imgss/63.png" alt><br>Cluster bomb（集束炸弹）模式，对两个以上payload值进行组合破解<br><img src="/imgss/59.png" alt><br>Payloads对字典和payload数值进行设置<br>load上传自己本机的字典，add from list使用burp自带字典<br><img src="/imgss/60.png" alt><br>Options设置线程和时间间隔<br><img src="/imgss/61.png" alt></p>
+<p>五、Repeater模块（抓包改包部分）<br>修改数据，补发个别HTTP请求，并分析它们的相应工具<br>左侧为请求消息区，右侧为响应消息区<br>Raw：显示纯文本格式的消息<br>Params：对于包含参数的请求，该选项会把这些参数显示为名字/值的格式，<br>可以简单的对他们进行查看和修改<br>Headers：将以名字/值的格式显示HTTP的请求头，并以原始格式显示消息体<br><img src="/imgss/62.png" alt></p>
 
-        </article>
-        
-        
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在QQ私聊我，也可以邮件至 lingyu195@gmail.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>&#39;burp使用&#39;</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="素念">素念</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-08-21, 21:50:12</p>
+    <p><span class="copy-title">最后更新:</span>2019-08-22, 10:47:42</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/08/21/burp使用/" title="&#39;burp使用&#39;">http://yoursite.com/2019/08/21/burp使用/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">©2016-2019 sunian</p>

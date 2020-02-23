@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>Sunian&#39;s Blog</title>
-  <meta name="keywords" content>
-  <meta name="description" content="Sunian&#39;s Blog">
+  <title>&#39;绕过DVWA的token&#39; | Sunian&#39;s Blog</title>
+  <meta name="keywords" content=" 基础知识 ">
+  <meta name="description" content="&#39;绕过DVWA的token&#39; | Sunian&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简历素念，男，19岁 现读于某大专院校，汽修专业，自学web安全 专注于研究渗透测试方向 web安全，内网，硬件，社工等 联系方式QQ：3504078815 邮箱：lingyu195@gmail.com">
 <meta property="og:type" content="website">
@@ -52,7 +52,7 @@
 </div>
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/imgss/touxiang.jpg" />
@@ -681,12 +681,55 @@
         </div>
     </div>
 </aside>
-<div class="post index">
+<div class="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-绕过token" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#记一次360笔试题"><span class="toc-text">记一次360笔试题</span></a></li></ol>
+        <h1 class="article-title">&#39;绕过DVWA的token&#39;</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="基础知识">基础知识</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color5">基础知识</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-08-22 11:58:29'>2019-08-21 21:50</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用宏绕过CSRF-TOKEN验证"><span class="toc-text">使用宏绕过CSRF TOKEN验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#录制宏"><span class="toc-text">录制宏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二种方法"><span class="toc-text">第二种方法</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -699,33 +742,41 @@
     }
 </style>
 </div>
-            <h3 id="记一次360笔试题"><a href="#记一次360笔试题" class="headerlink" title="记一次360笔试题"></a>记一次360笔试题</h3><ol>
-<li><p>如果存在SQL注入怎么判断不同的数据库。</p>
-</li>
-<li><p>简述下浏览器的自解码机制。</p>
-</li>
-<li><p>拿到目标站怎么进行渗透，需要注意什么。</p>
-</li>
-<li><p>CSRF漏洞的原理是什么？怎么修复？</p>
-</li>
-<li><p>代码审计怎么做？</p>
-</li>
-<li><p>哪些漏洞是WAF不能防御的？请举出至少三类漏洞。</p>
-</li>
-<li><p>考虑以下场景：一个多用户的博客系统（类似于CSDN），普通用户登陆到个人中心后，发现删除自己某篇文章所请求的URI为delete.php?article_id=24，请考虑这个地方最有可能出现哪些安全问题？</p>
-</li>
-<li><p>PHP5环境下，如果配置文件中magic_quotes_gpc为On，则PHP会对请求参数中的哪些字符进行自动转义？</p>
-</li>
-<li><p>使用sqlmap工具进行sql注入漏洞利用时，可以尝试使用（）选项获取一个操作系统shell。</p>
-</li>
-<li><p>渗透时后端环境是apache+php+mysql的情况下，利用sql注入写webshell一般来说需要满足三个条件：1.mysql用户需要有（）权限；2.需要知道（）路径；3.（）（符号）不能被过滤。</p>
-</li>
-</ol>
-<p>欢迎加入知识星球，获取参考答案及更多渗透资料<br><img src="/imgss/tu52.png" alt=""></p>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="使用宏绕过CSRF-TOKEN验证"><a href="#使用宏绕过CSRF-TOKEN验证" class="headerlink" title="使用宏绕过CSRF TOKEN验证"></a>使用宏绕过CSRF TOKEN验证</h3><p>1，先将DVWA的security调为high<br>2，选取CSRF输入密码，然后抓包<br><img src="/imgss/64.png" alt><br>3，发包到Repeater模块<br><img src="/imgss/65.png" alt><br>4，点击Go查看响应，第一次token响应为200 OK，所以这时再点击一次Go，<br>5，发现token失效，302，重定向到index.php页面<br><img src="/imgss/66.png" alt></p>
+<h3 id="录制宏"><a href="#录制宏" class="headerlink" title="录制宏"></a>录制宏</h3><p>宏的管理界面位于Project Options → Sessions,点击Add,新建一个宏<br><img src="/imgss/67.png" alt><br>从HTTP请求记录中选择获取CSTF TOKEN的请求，选择后确定<br><img src="/imgss/68.png" alt><br>点击右边的Configure item进行下一步设置<br><img src="/imgss/69.png" alt><br>宏设置页面，指定参数的位置。点击右下角Add进行参数添加<br><img src="/imgss/70.png" alt><br>输入参数名称（需和密码修改请求中的参数名一致），使用指定开始和结束位置的方式，<br>在请求响应内容中找到token，鼠标选择保持高亮，点击确定。然后在<br>Configure Macro Item、Macro Editor全部点击确定，完成宏的录制。<br><img src="/imgss/71.png" alt><br>完成后可以在宏列表框中看到刚才录制的宏<br><img src="/imgss/72.png" alt><br>填写规则描述（使用便于区分的文字内容），添加一个动作，在请求之前运行一个宏。<br><img src="/imgss/73.png" alt><br>动作编辑中，选择刚才录制的宏，选择只更新指定的参数，输入Token产生名称user_token，点击确定。<br><img src="/imgss/74.png" alt><br>完成动作编辑后，回到会话操作规则编辑界面，选择Scope,设置这个宏的作用域。<br><img src="/imgss/75.png" alt><br>完成新增规则的添加<br><img src="/imgss/76.png" alt><br>验证规则是否生效<br>回到Repeater页面（确保会话登陆有效，如超时，请重新登陆），再次发送密码修改的请求包，可以看到在提交请求后，user_token值自动更新，密码修改成功。<br><img src="/imgss/77.png" alt></p>
+<h3 id="第二种方法"><a href="#第二种方法" class="headerlink" title="第二种方法"></a>第二种方法</h3><p>1，准备工作，配置运行环境<br>Python<br>下载地址：<a href="http://www.jython.org/downloads.html" target="_blank" rel="noopener">http://www.jython.org/downloads.html</a><br>下载Standalone Jar版本，下载后将Jar文件放置在Burpsuite文件夹。<br>Ruby<br>下载地址：<a href="http://jruby.org/download" target="_blank" rel="noopener">http://jruby.org/download</a><br>下载Complete Jar 版本，下载后将Jar文件放置在Burpsuite文件夹。<br><img src="/imgss/79.png" alt></p>
+<p>2，插件安装路径<br>Brup的默认缓存路径在C盘，为避免重装系统造成配置文件丢失和便于转移Burpsuite路径，先在User Options里更改临时文件路径。<br><img src="/imgss/80.png" alt><br>安装插件CSRF Token Tracker<br>它是用于渗透测试过程中CSRF Token的自动更新<br><img src="/imgss/81.png" alt><br>security还是选择high<br>输入新密码，抓包<br><img src="/imgss/78.png" alt><br>在Repeater中重放包，第一次可以成功，第二次由于user_token失效，返回302，密码修改失败<br><img src="/imgss/82.png" alt><br>下面开始使用CSRF Token Tracker自动更新Token：<br>设置CSRF Token Tracker：添加一条规则，并勾选生效。<br>由于DVWA密码修改请求包中的CSRF TOKEN的名称和服务器响应包中一致，只需要填写Name即可<br><img src="/imgss/83.png" alt><br>再回到Repeater，重新发送密码修改包<br><img src="/imgss/84.png" alt><br>可以看到密码修改成功，请求包中的CSRF TOKEN自动更新（可在Logger++中查看）。</p>
 
-        </article>
-        
-        
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在QQ私聊我，也可以邮件至 lingyu195@gmail.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>&#39;绕过DVWA的token&#39;</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="素念">素念</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-08-21, 21:50:12</p>
+    <p><span class="copy-title">最后更新:</span>2019-08-22, 11:58:29</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/08/21/绕过token/" title="&#39;绕过DVWA的token&#39;">http://yoursite.com/2019/08/21/绕过token/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">©2016-2019 sunian</p>

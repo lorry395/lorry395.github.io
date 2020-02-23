@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>Sunian&#39;s Blog</title>
-  <meta name="keywords" content>
-  <meta name="description" content="Sunian&#39;s Blog">
+  <title>&#39;学习XSS及CSRF前准备&#39; | Sunian&#39;s Blog</title>
+  <meta name="keywords" content=" XSS ">
+  <meta name="description" content="&#39;学习XSS及CSRF前准备&#39; | Sunian&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简历素念，男，19岁 现读于某大专院校，汽修专业，自学web安全 专注于研究渗透测试方向 web安全，内网，硬件，社工等 联系方式QQ：3504078815 邮箱：lingyu195@gmail.com">
 <meta property="og:type" content="website">
@@ -52,7 +52,7 @@
 </div>
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/imgss/touxiang.jpg" />
@@ -681,12 +681,55 @@
         </div>
     </div>
 </aside>
-<div class="post index">
+<div class="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-学习XSS前准备" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#记一次360笔试题"><span class="toc-text">记一次360笔试题</span></a></li></ol>
+        <h1 class="article-title">&#39;学习XSS及CSRF前准备&#39;</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="XSS">XSS</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color4">XSS</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-12-12 16:50:07'>2019-12-12 11:54</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#经过和几位大佬的讨论，在学习XSS和CSRF前，应该先了解JS事件，cookie以及同源策略。"><span class="toc-text">经过和几位大佬的讨论，在学习XSS和CSRF前，应该先了解JS事件，cookie以及同源策略。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS事件"><span class="toc-text">JS事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie和session区别"><span class="toc-text">cookie和session区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同源策略"><span class="toc-text">同源策略</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -699,33 +742,44 @@
     }
 </style>
 </div>
-            <h3 id="记一次360笔试题"><a href="#记一次360笔试题" class="headerlink" title="记一次360笔试题"></a>记一次360笔试题</h3><ol>
-<li><p>如果存在SQL注入怎么判断不同的数据库。</p>
-</li>
-<li><p>简述下浏览器的自解码机制。</p>
-</li>
-<li><p>拿到目标站怎么进行渗透，需要注意什么。</p>
-</li>
-<li><p>CSRF漏洞的原理是什么？怎么修复？</p>
-</li>
-<li><p>代码审计怎么做？</p>
-</li>
-<li><p>哪些漏洞是WAF不能防御的？请举出至少三类漏洞。</p>
-</li>
-<li><p>考虑以下场景：一个多用户的博客系统（类似于CSDN），普通用户登陆到个人中心后，发现删除自己某篇文章所请求的URI为delete.php?article_id=24，请考虑这个地方最有可能出现哪些安全问题？</p>
-</li>
-<li><p>PHP5环境下，如果配置文件中magic_quotes_gpc为On，则PHP会对请求参数中的哪些字符进行自动转义？</p>
-</li>
-<li><p>使用sqlmap工具进行sql注入漏洞利用时，可以尝试使用（）选项获取一个操作系统shell。</p>
-</li>
-<li><p>渗透时后端环境是apache+php+mysql的情况下，利用sql注入写webshell一般来说需要满足三个条件：1.mysql用户需要有（）权限；2.需要知道（）路径；3.（）（符号）不能被过滤。</p>
-</li>
-</ol>
-<p>欢迎加入知识星球，获取参考答案及更多渗透资料<br><img src="/imgss/tu52.png" alt=""></p>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="经过和几位大佬的讨论，在学习XSS和CSRF前，应该先了解JS事件，cookie以及同源策略。"><a href="#经过和几位大佬的讨论，在学习XSS和CSRF前，应该先了解JS事件，cookie以及同源策略。" class="headerlink" title="经过和几位大佬的讨论，在学习XSS和CSRF前，应该先了解JS事件，cookie以及同源策略。"></a>经过和几位大佬的讨论，在学习XSS和CSRF前，应该先了解JS事件，cookie以及同源策略。</h3><h3 id="JS事件"><a href="#JS事件" class="headerlink" title="JS事件"></a>JS事件</h3><p>先看事件，有时间的话，尽量把JS看完<br>我常用的事件onerror，onload，onclick，onmouseover，onunload(关闭页面时触发，必须绑定body里)。<br><a href="https://www.runoob.com/js/js-events.html" target="_blank" rel="noopener">https://www.runoob.com/js/js-events.html</a></p>
+<h3 id="cookie和session区别"><a href="#cookie和session区别" class="headerlink" title="cookie和session区别"></a>cookie和session区别</h3><p>1，服务端设置session会话，session在关闭浏览器时会自动注销，再次连接时，将会重新分配。<br>   客户端设置cookie，cookie中包含sessionid(id为唯一不会重复的编号)。<br>   网站通过读取cookie，获取用户的相关信息，可以做出相应动作，如直接登陆，无须输入账户和密码。<br>2，cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗,如果主要考虑到安全应当使用session<br>3，session会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能，如果主要考虑到减轻服务器性能方面，应当使用COOKIE<br>4，单个cookie在客户端的限制是3K，就是说一个站点在客户端存放的COOKIE不能3K。<br>5，将登陆信息等重要信息存放为SESSION;其他信息如果需要保留，可以放在COOKIE中</p>
+<h3 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h3><p>一、概述<br>1，所谓“同源”指的是三个相同：<br>协议相同，端口相同，域名相同。(三者相同时，两个网页才可共用cookie)<br>2，同源策略的目的：是为了保护用户信息的安全，防止恶意的网站窃取数据。<br>3，如果是非同源，共有三种行为受到限制：<br>(1)cookie、localstorage、indexDB无法获取<br>(2)DOM无法获得<br>(3)AJAX请求不能发送</p>
+<p>二、cookie<br>cookie是服务器写入浏览器的一小段信息(里面包含了用户的信息，如账号密码等)，只有同源的网页才能共享。<br>但是，两个页面一级域名相同，只是二级域名不同，浏览器允许通过设置docment.domain共享cookie。<br>另外，服务器也可以在设置cookie时，指定cookie所属域名为一级域名，比如域名为.sunian.com<br>我们可以set-cookie:key=value;domain=.sunian.com;path=/<br>这样的话二三级域名不用做任何设置，都可读取这个cookie。</p>
+<p>三、AJAX<br>同源政策规定，AJAX请求只能发给同源的网址，否则就报错。<br>除了架设服务器代理（浏览器请求同源服务器，再由后者请求外部服务），有三种方法规避这个限制。<br>1，JSONP<br>JSONP是服务器与客户端跨源通信的常用方法。最大特点就是简单适用，老式浏览器全部支持，服务器改造非常小。<br>它的基本思想是，网页通过添加一个script元素，向服务器请求JSON数据，这种做法不受同源政策限制；服务器收到请求后，将数据放在一个指定名字的回调函数里传回来。<br>2，WebSocket<br>WebSocket是一种通信协议，使用ws://（非加密）和wss://（加密）作为协议前缀。该协议不实行同源政策，只要服务器支持，就可以通过它进行跨源通信。<br>3，CORS<br>CORS是跨源资源分享（Cross-Origin Resource Sharing）的缩写。它是W3C标准，是跨源AJAX请求的根本解决方法。相比JSONP只能发GET请求，CORS允许任何类型的请求。<br>CORS请求大致和ajax请求，但是在头信息中加上了Origin字段表明请求来自哪个源。如果orgin是许可范围之内的话，服务器返回的响应会多出Acess-Control-Allow-*的字段。<br>允许所有域名访问只需在<a href="http://server.runoob.com/server.php" target="_blank" rel="noopener">http://server.runoob.com/server.php</a> 文件头部添加header(‘Access-Control-Allow-Origin:*‘);</p>
+<p>4，CSP策略<br><a href="https://www.zhihu.com/question/21979782" target="_blank" rel="noopener">https://www.zhihu.com/question/21979782</a><br>浏览器内容安全策略，减少xss攻击。(但不可避免)</p>
+<p>具体资料(必看)<br><a href="http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html</a><br><a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2016/04/cors.html</a></p>
 
-        </article>
-        
-        
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在QQ私聊我，也可以邮件至 lingyu195@gmail.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>&#39;学习XSS及CSRF前准备&#39;</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="素念">素念</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-12-12, 11:54:41</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-12, 16:50:07</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/12/学习XSS前准备/" title="&#39;学习XSS及CSRF前准备&#39;">http://yoursite.com/2019/12/12/学习XSS前准备/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">©2016-2019 sunian</p>
