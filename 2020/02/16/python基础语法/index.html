@@ -234,9 +234,9 @@
 </aside>
 <div class="post"> #从这开始
     <div class="pjax">
-        <article id="post-html基本语法" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-python基础语法" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">&#39;html基本语法&#39;</h1>
+        <h1 class="article-title">&#39;python基础语法&#39;</h1>
     
     <div class="article-meta">
         
@@ -244,21 +244,21 @@
         
         <span class="book">
             
-                <a href="javascript:" data-rel="基础知识">基础知识</a>
+                <a href="javascript:" data-rel="python">python</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a href="javascript:" class="color5">基础知识</a>
+            <a href="javascript:" class="color5">python</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-08-17 17:12:06'>2019-07-28 00:00</time>
+        创建时间:<time class="date" title='更新时间: 2020-02-16'>2020-02-16 00:00</time>
         
     </div>
     <div class="article-meta">
@@ -280,7 +280,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本语法"><span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象查找"><span class="toc-text">对象查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS"><span class="toc-text">JS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery"><span class="toc-text">jQuery</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ajax"><span class="toc-text">ajax</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础语法"><span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象查找"><span class="toc-text">对象查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS"><span class="toc-text">JS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery"><span class="toc-text">jQuery</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ajax"><span class="toc-text">ajax</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -308,25 +308,7 @@
 <h3 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">jQuery是一个JS库，90%网站都使用jQuery</span><br><span class="line"></span><br><span class="line"><span class="variable">$&#123;'img'&#125;</span>             标签</span><br><span class="line">$(<span class="string">'#imgid'</span>)         id</span><br><span class="line">$(<span class="string">'#imgclass'</span>)    class      </span><br><span class="line">$(<span class="string">'#imgid'</span>)[0].src   查看src元素</span><br><span class="line"></span><br><span class="line">$(<span class="string">'#imgid'</span>).hide()  隐藏</span><br><span class="line">$(<span class="string">'#imgid'</span>).show()  显示</span><br></pre></td></tr></table></figure>
 
 <h3 id="ajax"><a href="#ajax" class="headerlink" title="ajax"></a>ajax</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">AJAX,后台与服务器数据少量交换，使网页异步更新，创建快速动态网页的技术</span><br><span class="line">$.get(<span class="string">'https://www.baidu.com/get/'</span>);</span><br><span class="line">$.post(<span class="string">'https://www.baidu.com/post'</span>,&#123;</span><br><span class="line">        name:<span class="string">"菜鸟教程"</span>,</span><br><span class="line">        url:<span class="string">"http://www.runoob.com"</span></span><br><span class="line">&#125;)</span><br><span class="line">$(<span class="string">'input'</span>)  //查找所有value</span><br><span class="line">// onchange</span><br><span class="line"></span><br><span class="line">$.ajax(&#123;</span><br><span class="line">      <span class="built_in">type</span>: <span class="string">'POST'</span>,</span><br><span class="line">      url: <span class="string">'http://www.baidu.com/api/user/info'</span>,</span><br><span class="line">      dataType: <span class="string">'json'</span>,</span><br><span class="line">      </span><br><span class="line">      data: &#123;</span><br><span class="line">        args: <span class="string">"value"</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    </span><br><span class="line">      xhrFields: &#123;</span><br><span class="line">          withCredentials:<span class="literal">true</span>              //支持附带详细信息,可以携带cookie</span><br><span class="line">      &#125;,</span><br><span class="line">      </span><br><span class="line">      crossDomain: <span class="literal">true</span>,                    //请求偏向外域,支持跨域请求</span><br><span class="line">      success: <span class="keyword">function</span> (data) &#123;</span><br><span class="line">          console.log(data);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">      <span class="built_in">type</span>: <span class="string">'GET'</span>,</span><br><span class="line">      url: <span class="string">'http://www.baidu.com/s'</span>,</span><br><span class="line">      dataType: <span class="string">'json'</span>,</span><br><span class="line">     </span><br><span class="line">     xhrFields: &#123;</span><br><span class="line">          withCredentials:<span class="literal">true</span>              </span><br><span class="line">      &#125;,</span><br><span class="line">      crossDomain: <span class="literal">true</span>,                    </span><br><span class="line">      success: <span class="keyword">function</span> (data) &#123;</span><br><span class="line">          console.log(data);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-
-
-      
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在QQ私聊我，也可以邮件至 lingyu195@gmail.com </span>
-    </div>
-</article>
-
-
-
-<div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>&#39;html基本语法&#39;</p>
-    
-    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="素念">素念</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-07-28, 00:00:00</p>
-    <p><span class="copy-title">最后更新:</span>2019-08-17, 17:12:06</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/07/28/html基本语法/" title="&#39;html基本语法&#39;">http://yoursite.com/2019/07/28/html基本语法/</a>
-    <p>
-        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
-    </p>
+   
 </div>
 
 
