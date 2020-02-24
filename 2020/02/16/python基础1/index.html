@@ -287,28 +287,124 @@
         
     </div>
     <div class="x-wiki-content x-main-content">
-<li><p>Python3介绍</p>
-</li>	
 <p>
-计算机顾名思义就是可以做数学计算的机器，因此，计算机程序理所当然地可以处理各种数值。但是，计算机能处理的远不止数值，还可以处理文本、图形、音频、视频、网页等各种各样的数据，不同的数据，需要定义不同的数据类型。
+一、基础语法
+二、运算符
+三、流程控制
 </p>
-<p>
-Python"#"开头的语句是注释；":"为代码结尾，写错了大小写（大小写敏感），程序会报错，其中用缩进来组织代码块，4个空格的缩进。	
-</p>
-<li><p>数据类型和变量</p>
+<li><p>一、基础语法</p>
 </li>
 <p>
-数据类型：分为整数（0，1，2）、浮点数（1.23，3.14，-9.01）、字符串（单引号或双引号括起来的任意文本，例:'lorry','blog'）、布尔值（可以直接用True、False表示布尔值（请注意大小写））、空值（空值是Python里一个特殊的值，用None表示）等常见几种。
-变量为可对其赋值，常量不可赋值。
+1、标识符
+  命名规则：
+   •以字母、下划线开头；
+   •其他部分由字母、数字或下划线组成；
+   •不能使用关键字命名；
+   •常量一般全部是大写；
+   •命名要有意义，不宜过长。
+  定义：可以改变的量：
+   age=19    #定义一个名为age的量，他的值为19
+  常量：不可以改变的量（命名字母全大写）
 </p>
-<li><p>字符串和编码</p>
+<p>
+2、注释
+  Python中单行注释以 # 开头
+  行注释可以用多个 # 号，还有 ''' 和 """
+3、行与缩进
+  python缩进来表示代码块，不使用大括号 {} 。
+  缩进的空格数是可变的，但是同一个代码块的语句必须包含相同的缩进空格数。
+4、数字(Number)类型
+  python中数字有四种类型：整数、布尔型、浮点数和复数。
+   •int (整数), 如 1
+   •bool (布尔), 如 True
+   •float (浮点数), 如 1.23、3E-2
+   •complex (复数), 如 1 + 2j、 1.1 + 2.2j
+  ps：类型的转换
+   •int(x) 将x转换为一个整数。
+   •float(x) 将x转换到一个浮点数。
+   •complex(x) 将x转换到一个复数，实数部分为 x，虚数部分为 0。
+   •complex(x, y) 将 x 和 y 转换到一个复数，实数部分为 x，虚数部分为 y。x 和 y 是数字表达式。
+5、字符串(String)
+   •python中单引号和双引号使用完全相同。
+   •使用三引号('''或""")可以指定一个多行字符串
+   •转义符 '\' 反斜杠可以用来转义
+   •Python中的字符串不能改变
+   •字符串可以用 + 运算符连接在一起，用 * 运算符重复以及格式化输出
+  ps：格式化输出:字符串 %s；整数 %d、；浮点数%f
+   name = "lorry"
+   print （"i am %s " ,% name）
+   #输出: i am lorry
+6、布尔值
+  一个True（真）
+  一个False（假）
+7、用户输入与输出
+  input() 等待用户输入
+  print() 打印输出
+</p>
+
+<li>
+	<p>
+		二、运算符
+	</p>
 </li>
 <p>
-在最新的Python3版本中，字符串是以Unicode编码的，Python的字符串支持多语言，咱们使用时调最常用的编码UTF-8就OK。（此处可以去学习一下字符编码：https://blog.csdn.net/qq_42068856/article/details/83792174）
+1、Python算术运算符
 </p>
+<blockquote>
+<p><img src="\imgss\python算术运算符.png" alt="" /></p>
+</blockquote>
 <p>
-在编码中一个常见的问题是如何输出格式化的字符串。我们经常会输出类似'亲爱的xxx你好！你xx月的话费是xx，余额是xx'之类的字符串，而xxx的内容都是根据变量变化的，所以，需要一种简便的格式化字符串的方式。	
+2、Python比较运算符
 </p>
+<blockquote>
+<p><img src="\imgss\python比较运算符.png" alt="" /></p>
+</blockquote>
+<p>
+3、Python赋值运算符
+</p>
+<blockquote>
+<p><img src="\imgss\python赋值运算符.png" alt="" /></p>
+</blockquote>
+<p>
+4、Python位运算符
+</p>
+<blockquote>
+<p><img src="\imgss\python位运算符.png" alt="" /></p>
+</blockquote>
+<p>
+5、Python逻辑运算符
+</p>
+<blockquote>
+<p><img src="\imgss\python逻辑运算符.png" alt="" /></p>
+</blockquote>
+<p>
+6、Python成员运算符
+</p>
+<blockquote>
+<p><img src="\imgss\python成员运算符.png" alt="" /></p>
+</blockquote>
+<p>
+7、Python身份运算符
+</p>
+<blockquote>
+<p><img src="\imgss\python身份运算符.png" alt="" /></p>
+</blockquote>
+<p>
+8、Python运算符优先级
+</p>
+<blockquote>
+<p><img src="\imgss\python运算符优先级.png" alt="" /></p>
+</blockquote>
+<p><a href="https://www.runoob.com/python3/python3-basic-operators.html" target="_blank">运算符图片转自菜鸟教程</a></p>
+<li>
+	<p>
+		 三、流程控制
+	</p>
+</li>
+<p>
+	1、条件控制
+</p>
+
 <p>在Python中，采用的格式化方式和C语言是一致的，用<code>%</code>实现，举例如下：</p>
 <pre><code>&gt;&gt;&gt; 'Hello, %s' % 'world'
 'Hello, world'
