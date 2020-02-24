@@ -287,9 +287,7 @@
         
     </div>
     <div class="x-wiki-content x-main-content">
-<h4>一、基础语法</h4>
-<h4>二、运算符</h4>
-<h4>三、流程控制</h4>
+<h4>基础语法、运算符、流程控制</h4>
 <h2>一、基础语法<h2>
 <h4>1、标识符</h4>
 <p>命名规则：</p>
@@ -395,9 +393,49 @@
 <h4>
 	1、条件控制
 </h4>
-
-
-
+<pre><code>
+if 如果:   # 如果为真，执行如果代码
+      执行如果代码
+elif 否则如果:  # 否则如果为真，执行否则如果代码
+     执行否则如果代码
+else:   # 前面都不为真，执行否则代码
+     执行否则代码
+</code></pre>
+<h4>
+	2、while 循环使用 else 语句
+</h4>
+<pre><code>
+while 如果为真:  #如果为真，执行循环语句
+     执行循环语句
+else:  #while循环为假，执行否则语句
+     执行否则语句
+</code></pre>
+<h4>
+	 3、for 语句
+</h4>
+<p>for i in range(10):</p>
+<p>&nbsp;&nbsp;执行语句</p>
+<p>ps：内置range()函数它会生成数列:</p>
+<pre><code>
+1 for i in range(5):
+2      print(i)
+3 ...
+4 0
+5 1
+6 2
+7 3
+8 4
+</code></pre>
+<h4>
+	 4、break和continue语句
+</h4>
+<p>break 语句可以跳出 for 和 while 的循环体;</p>
+<p>continue语句被用来告诉Python跳过当前循环块中的剩余语句，然后继续进行下一轮循环。</p>
+<h4>
+	  5、pass 语句
+</h4>
+<p>Python pass是空语句，是为了保持程序结构的完整性;</p>
+<p>pass 不做任何事情，一般用做占位语句。</p>
 
     </div>
     <div class="copyright">
