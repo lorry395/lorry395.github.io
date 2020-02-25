@@ -243,9 +243,9 @@
 </aside>
 <div class="post"> 
     <div class="pjax">
-        <article id="post-python基础1" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-初识应急响应" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">&#39;python基础1&#39;</h1>
+        <h1 class="article-title">&#39;初识应急响应&#39;</h1>
     
     <div class="article-meta">
         
@@ -253,21 +253,21 @@
         
         <span class="book">
             
-                <a href="javascript:" data-rel="python">python</a>
+                <a href="javascript:" data-rel="应急响应">应急响应</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a href="javascript:" class="color5">python</a>
+            <a href="javascript:" class="color3">应急响应</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-02-16'>2020-02-16 00:00</time>
+        创建时间:<time class="date" title='更新时间: 2020-02-23'>2020-02-23 00:00</time>
         
     </div>
     <div class="article-meta">
@@ -287,155 +287,58 @@
         
     </div>
     <div class="x-wiki-content x-main-content">
-<h4>基础语法、运算符、流程控制</h4>
-<h2>一、基础语法<h2>
-<h4>1、标识符</h4>
-<p>命名规则：</p>
-   <p>•以字母、下划线开头；</p>
-   <p>•其他部分由字母、数字或下划线组成；</p>
-   <p>•不能使用关键字命名；</p>
-   <p>•常量一般全部是大写；</p>
-   <p>•命名要有意义，不宜过长。</p>
-  <p>定义：可以改变的量：</p>
-   <p>age=19    #定义一个名为age的量，他的值为19</p>
-  <p>常量：不可以改变的量（命名字母全大写）</p>
+<p>随着国家信息化建设进程的加速，计算机信息系统和网络已经成为重要的基础设施，各种潜在的网络信息危险因素与日俱增，完善的网络安全体系在保护体系之外必须建立相应的应急响应体系。</p>
+<h3>一、五大亮点：</h3>
+<h4>1、安全应急事件经典案例</h4>
+<p>通过安全应急事件了解安全应急响应的重要性，并且了解安全应急响应在甲方、乙方安全公司重要性，通过了解安全应急响应的流程，熟悉自身工作中需要掌握的安全应急响应技能。</p>
 
-<h4>2、注释</h4>
-  <p>Python中单行注释以 # 开头</p>
-  <p>行注释可以用多个 # 号，还有 ''' 和 """</p>
-<h4>3、行与缩进</h4>
-  <p>python缩进来表示代码块，不使用大括号 {} 。</p>
-  <p>缩进的空格数是可变的，但是同一个代码块的语句必须包含相同的缩进空格数。</p>
-<h4>4、数字(Number)类型</h4>
-  <p>python中数字有四种类型：整数、布尔型、浮点数和复数。</p>
-   <p>•int (整数), 如 1  </p>
-   <p>•bool (布尔), 如 True</p>
-   <p>•float (浮点数), 如 1.23、3E-2</p>
-   <p>•complex (复数), 如 1 + 2j、 1.1 + 2.2j</p>
-  <p>ps：类型的转换</p>
-   <p>•int(x) 将x转换为一个整数。</p>
-   <p>•float(x) 将x转换到一个浮点数。</p>
-   <p>•complex(x) 将x转换到一个复数，实数部分为 x，虚数部分为 0。</p>
-   <p>•complex(x, y) 将 x 和 y 转换到一个复数，实数部分为 x，虚数部分为 y。x 和 y 是数字表达式。</p>
-<h4>5、字符串(String)</h4>
-   <p>•python中单引号和双引号使用完全相同。</p>
-   <p>•使用三引号('''或""")可以指定一个多行字符串</p>
-   <p>•转义符 '\' 反斜杠可以用来转义</p>
-   <p>•Python中的字符串不能改变</p>
-   <p>•字符串可以用 + 运算符连接在一起，用 * 运算符重复以及格式化输出</p>
-  <p>ps：格式化输出:字符串 %s；整数 %d、；浮点数%f</p>
-   <p>name = "lorry"</p>
-   <p>print （"i am %s " ,% name）</p>
-  <p> #输出: i am lorry</p>
-<h4>6、布尔值</h4>
-  <p>一个True（真）</p>
-  <p>一个False（假）</p>
-<h4>7、用户输入与输出</h4>
-  <p>input() 等待用户输入</p>
-  <p>print() 打印输出</p>
+<h4>2、与工作实践结合</h4>
+<p>通过了解安全应急响应的背景后，从系统、应用、网络三个层面来分享自身需要掌握的技能，并且熟练运用知识点用于工作实践当中。</p>
 
-<h2>
-		二、运算符
-	</h2>
-<h4>
-1、Python算术运算符
-</h4>
-<blockquote>
-<p><img src="\imgss\python算术运算符.png" alt="" /></p>
-</blockquote>
-<h4>
-2、Python比较运算符
-</h4>
-<blockquote>
-<p><img src="\imgss\python比较运算符.png" alt="" /></p>
-</blockquote>
-<h4>
-3、Python赋值运算符
-</h4>
-<blockquote>
-<p><img src="\imgss\python赋值运算符.png" alt="" /></p>
-</blockquote>
-<h4>
-4、Python位运算符
-</h4>
-<blockquote>
-<p><img src="\imgss\python位运算符.png" alt="" /></p>
-</blockquote>
-<h4>
-5、Python逻辑运算符
-</h4>
-<blockquote>
-<p><img src="\imgss\python逻辑运算符.png" alt="" /></p>
-</blockquote>
-<h4>
-6、Python成员运算符
-</h4>
-<blockquote>
-<p><img src="\imgss\python成员运算符.png" alt="" /></p>
-</blockquote>
-<h4>
-7、Python身份运算符
-</h4>
-<blockquote>
-<p><img src="\imgss\python身份运算符.png" alt="" /></p>
-</blockquote>
-<h4>
-8、Python运算符优先级
-</h4>
-<blockquote>
-<p><img src="\imgss\python运算符优先级.png" alt="" /></p>
-</blockquote>
-<p><a href="https://www.runoob.com/python3/python3-basic-operators.html" target="_blank">运算符图片转自菜鸟教程</a></p>
-    <h2>
-		 三、流程控制
-	</h2>
+<h4>3、掌握应急工具</h4>
+<p>通过了解安全应急响应过程中涉及的工作部分的了解与掌握，通过自动化和半自动化的工具来提升安全应急响应处置工作的效率，掌握常用应急工具的使用及基础应用工作。</p>
 
-<h4>
-	1、条件控制
-</h4>
-<pre><code>
-if 如果:   # 如果为真，执行如果代码
-      执行如果代码
-elif 否则如果:  # 否则如果为真，执行否则如果代码
-     执行否则如果代码
-else:   # 前面都不为真，执行否则代码
-     执行否则代码
-</code></pre>
-<h4>
-	2、while 循环使用 else 语句
-</h4>
-<pre><code>
-while 如果为真:  #如果为真，执行循环语句
-     执行循环语句
-else:  #while循环为假，执行否则语句
-     执行否则语句
-</code></pre>
-<h4>
-	 3、for 语句
-</h4>
-<p>for i in range(10):</p>
-<p>&nbsp;&nbsp;执行语句</p>
-<p>ps：内置range()函数它会生成数列:</p>
-<pre><code>
-for i in range(5):
-     print(i)
-...
-0
-1
-2
-3
-4
-</code></pre>
-<h4>
-	 4、break和continue语句
-</h4>
-<p>break 语句可以跳出 for 和 while 的循环体;</p>
-<p>continue语句被用来告诉Python跳过当前循环块中的剩余语句，然后继续进行下一轮循环。</p>
-<h4>
-	  5、pass 语句
-</h4>
-<p>Python pass是空语句，是为了保持程序结构的完整性;</p>
-<p>pass 不做任何事情，一般用做占位语句。</p>
+<h4>4、应急案例深度分析</h4>
+<p>通过对常用后门的深度分析及多种后门分析的应用技巧，并结合互联网常见的应急案例进行深度分析，通过实际的案例分析工作对安全应急响应实际工作有更深刻的理解，并且结合自身的工作内容加以实践。</p>
+
+<h4>5、甲方乙方的应急响应建立</h4>
+<p>通过从甲方互联网公司安全团队与乙方安全服务公司两个角度分享，甲方在安全应急响应体系的建立、处置的流程思路的分享，并且结合乙方安全公司在安全应急响应工作过程中的安全应急响应的服务流程、安全应急处置的思路，安全应急响应项目方案的制定、实施，更体系化的了解乙方在应急工作过程中的重要性。</p>
+
+<h3>二、事件分类</h3>
+<p>1、Web入侵：挂马、篡改、Webshell;</p>
+<p>2、系统入侵：系统异常、RDP爆破、SSH爆破、主机漏洞;</p>
+<p>3、病毒木马：远控、后门、勒索软件;</p>
+<p>4、信息泄漏：脱裤、数据库登录（弱口令）;</p>
+<p>5、网络流量：频繁发包、批量请求、DDOS攻击。</p>
+
+<h3>三、排查思路</h3>
+<p>一个常规的入侵事件后的系统排查思路：</p>
+<h4>文件分析</h4>
+<p>a) 文件日期、新增文件、可疑/异常文件、最近使用文件、浏览器下载文件;</p>
+<p>b) Webshell 排查与分析;</p>
+<p>c) 核心应用关联目录文件分析。</p>
+
+<h4>进程分析</h4>
+<p>a) 当前活动进程 & 远程连接;</p>
+<p>b) 启动进程&计划任务;</p>
+<p>c) 进程工具分析:Windows:Pchunter 、 Linux: Chkrootkit&Rkhunter。</p>
+
+<h4>系统信息</h4>
+<p>a) 环境变量;</p>
+<p>b) 帐号信息;</p>
+<p>c) History;</p>
+<p>d) 系统配置文件。</p>
+
+<h4>日志分析</h4>
+<p>a) 操作系统日志:Windows: 事件查看器（eventvwr） 、 Linux: /var/log/ 。</p>
+<p>b) 应用日志分析:Access.log 、 Error.log 。</p>
+
+<h4>资源参考</h4>
+<p><a href="https://xz.aliyun.com/t/1140/#toc-1"target="_blank">https://xz.aliyun.com/t/1140/#toc-1</a></p>
+
+
+
+
 
     </div>
     <div class="copyright">
