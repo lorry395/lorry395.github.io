@@ -288,8 +288,118 @@
     </div>
     <div class="x-wiki-content x-main-content">
 	    
-<h2>待更<h2>
-<h2>......<h2>	
+    <p>一、域名信息的搜集</p>
+    <p>二、公司敏感信息网上搜集</p>
+    <p>三、网站指纹识别</p>
+    <p>四、端口扫描</p>
+    <p>五、网站敏感目录和文件</p>
+    <p>六、旁站和C段扫描</p>
+    <p>七、社会工程学</p>
+
+    <h2>前言：</h2>
+    <p>信息搜集对于渗透测试前期来说是非常重要的，因为只要我们掌握了目标站点足够多的信息之后，我们才能更好的对风险进行检测。</p>
+    <p>信息收集的方式可分为主动收集和被动收集。</p>
+    <p>1、主动信息搜集：通过直接访问、扫描网站。</p>
+    <p>2、被动信息搜集：利用三方的服务或工具对目标进行访问了解。</p>
+
+    <h2>一、域名信息的搜集</h2>
+    <p>当我们确定了测试目标后，接下来我们要搜集域名对应的ip，域名的whois信息、子域名等与域名相关的信息。</p>
+    <p>域名的whois信息：whois是用来查询域名注册所有者等信息的传输协议。</p>
+    <p>在线whois查询：<a href="http://whois.chinaz.com/">http://whois.chinaz.com/</a></p>
+    <p>备案查询网：<a href="http://www.beianbeian.com/">http://www.beianbeian.com/</a></p>
+    <p>国家企业信用信息公示系统：<a href="http://www/gsxt.gov.cn/index.html">http://www/gsxt.gov.cn/index.html</a></p>
+    <P>DNS在线查询：<a href="https://dnsdb.io/">https://dnsdb.io/</a></P>
+    <p>在线子域名查询网站：<a href="https://phpinfo.me/domain/">https://phpinfo.me/domain/</a></p>
+    <p>判断域名对应的ip：先得判断此域名是否存在CDN的情况，也可以在本机可访问的情况下进行ping处理，观察返回的ip是否相同，若不同ip大于1个，则有可能存在CDN。</p>
+    <p>在线查询是否存在CDN查询:<a href="http://ping.chinaz.com/">http://ping.chinaz.com/</a></p>
+    <P>绕过CDN寻找真实ip常规方法（找到后需要验证）：</P>
+    <p>1）内部邮箱源。一般的邮件系统都在内部，没有经过CDN的解析，通过目标网站用户注册或者RSS订阅功能，查看邮件、寻找邮件头中的邮件服务器域名ip，ping这个邮件服务器的域名，就可以获得目标的真实ip（注意，必须是目标自己的邮件服务器，第三方或公共邮件服务器是没有用的）；</p>
+    <p>2）扫描web测试文件，如phpinfo、test等，从而找到目标真实ip；</p>
+    <p>3）分站域名。很多网站主站的访问量会比较大，所以主站都是挂CDN的，但是分站可能没有挂CDN，可以通过ping二级域名获取分站ip，可能会出现分站和主站不是同一个ip但在同一个C段下面的情况，从而判断出目标的真实ip段；</p>
+    <p>4）国外访问。国内的CDN往往只对国内用户的访问加速，国外的就不一定。</p>
+    <p>国外在线代理网站：<a href="https://asm.ca.com/en/ping.php">https://asm.ca.com/en/ping.php</a>；</p>
+    <P>5）	查询域名的解析记录。目标也许很久以前没有使用过CDN，可以通过网站NETCRAFT（<a href="https://www.netcraft.com">https://www.netcraft.com</a>）来观察域名的ip历史记录，也可以大致分析出目标的真实ip段；</P>
+    <p>6）如果目标有自己的app，可以抓取app的请求，从里面找出目标的真实ip；</p>
+ 
+    <h2>二、公司敏感信息网上搜集</h2>
+    <p>首先这种得先确定公司后，我们可以去互联网上查询与该公司有关的任何信息。比如，公司的邮箱格式，公司的员工姓名，以及与该公司有关的任何信息。运气好Github上可以查找到相应的源代码。</p>
+
+    <h2>三、网站指纹识别</h2>
+    <p>在渗透测试中，对目标服务器进行指纹识别是相当有必要的，因为只有识别出相应的Web容器或者CMS，才能查找与其相关的漏洞，然后才能进行相应的渗透操作。CMS又称整站系统（内容管理系统）。常见的CMS有：WordPress、Dedecms、Discuz、PhpWeb、PhpWind、Dvbbs、PhpCMS、ECShop、、SiteWeaver、AspCMS、帝国、Z-Blog等。</p>
+    <p>常用的指纹识别工具：whatweb、谷歌插件（Wappalyzer）。</p>
+    <p>在线指纹识别网站：</p>
+    <p>BugScaner：<a href="http://whatweb.bugscaner.com/look/">http://whatweb.bugscaner.com/look/</a></p>
+    <p>云悉指纹：<a href="http://www.yunsee.cn/finger.html"></a>http://www.yunsee.cn/finger.html</p>
+    <p>WhatWeb：<a href="https://whatweb.net/">https://whatweb.net/</a></p>
+
+    <h2>四、端口扫描</h2>
+    <p>此阶段需要知道目标服务器开放了哪些端口，是否可能存在相应漏洞，例：</p>
+    <h4>1、文件共享服务端口</h4>
+    <P>21/22/69——ftp/tftp文件传输协议：允许匿名的上传、下载、爆破和嗅探操作</P>
+    <p>139——nfs服务：配置不当</p>
+    <p>389——ldap目录访问协议：注入、允许匿名访问、弱口令</p>
+    <p>2049——nfs服务：配置不当</p>
+
+    <h4>2、远程连接服务端口</h4>
+    <p>22——ssh远程连接：爆破、ssh隧道及内网代理转发、文件传输</p>
+    <p>23——telnet远程连接：爆破、嗅探、弱口令</p>
+    <p>3389——rdp远程桌面连接：shift后门（需要windows server 2003以下的系统）、爆破</p>
+    <p>5632——vnc：抓密码、代码执行</p>
+    <p>5900——pyanywhere服务：弱口令爆破</p>
+
+    <h4>3、web应用服务端口</h4>
+    <p>80/443/8080——常见的web服务端口：web攻击、爆破、对于服务器版本漏洞</p>
+    <p>1352——lotus domino 邮件服务：弱口令、信息泄露、爆破</p>
+    <p>4848——glassfish 控制台：java反序列化、弱口令</p>
+    <p>7001/7002——weblogic 控制台：java反序列化、弱口令</p>
+    <p>8080/8089——jboss/resin/jetty/jenkins：反序列化、控制台弱口令</p>
+    <p>9090——websphere控制台：弱口令</p>
+    <p>10000——webmin-web 控制面板：弱口令</p>
+
+    <h4>4、数据库服务端口</h4>
+    <p>500——sysbase/DB2数据库：爆破、注入</p>
+    <p>1433——mssql数据库：注入、提权、SA弱口令、爆破</p>
+    <p>1521——oracle数据库：TNS爆破、注入、反弹shell</p>
+    <p>3306——mysql：注入、提权、爆破</p>
+    <p>5432——postgresql数据库：注入、爆破、弱口令</p>
+    <p>6379——redis数据库：可尝试未授权访问、弱口令爆破</p>
+    <p>27017/27018——mongoDB：爆破、未授权访问</p>
+
+    <h4>5、邮件服务端口</h4>
+    <p>25——SMTP邮件服务：邮件伪造</p>
+    <p>110——POP3协议：爆破、嗅探</p>
+    <p>143——IMAP协议：爆破</p>
+
+    <h4>6、网络常见协议端口</h4>
+    <p>53——DNS域名系统：允许区域传送、DNS劫持、缓存投毒、欺骗</p>
+    <p>67/68——DHCP服务：劫持、欺骗</p>
+    <p>161——SNMP协议：爆破、搜集目标内网信息</p>
+
+    <h4>7、特殊服务端口</h4>
+    <p>512/513/514——linux rexec服务：爆破、rlogin登录</p>
+    <p>873——rsync服务：匿名访问、文件上传</p>
+    <p>2181——zookeeper服务：未授权访问</p>
+    <p>3690——svn服务：svn泄露、未授权访问</p>
+    <p>8069——zabbix服务：远程执行、sql注入</p>
+    <p>9200/9300——elasticsearch服务：远程执行</p>
+    <p>11211——memcache服务：未授权访问</p>
+    <p>50000——SAP management console：远程执行</p>
+    
+    <h4>端口扫描工具有nmap和masscan。nmap扫描的准确性较高，但是扫描的比较慢。masscan扫描的比较快，但是准确性较低。</h4>
+
+    <h2>六、旁站和C段扫描</h2>
+    <p>旁站指的是同一服务器上的其他网站，很多时候，有些网站可能不是那么容易入侵。那么，可以查看该网站所在的服务器上是否还有其他网站。如果有其他网站的话，可以先拿下其他网站的webshell，然后再提权拿到服务器的权限，最后就自然可以拿下该网站了。</p>
+    <p>但对于单独测试的网站，C段扫描意义不大。</p>
+    <p>旁站和C段在线查询地址：</p>
+    <a href="http://www.webscan.cc/">http://www.webscan.cc/</a>
+    <a href="https://phpinfo.me/bing.php">https://phpinfo.me/bing.php</a>
+
+    <h2>七、社会工程学</h2>
+    <p><a href="https://blog.csdn.net/weixin_34242658/article/details/94607398">详见链接</a></p>
+    <P> </P>
+    <p> </p>
+    <p> </p>
+    <h4>参考书籍：《Web安全攻防》</h4>
 
     </div>
     <div class="copyright">
